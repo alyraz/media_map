@@ -10,6 +10,7 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'quiet_assets'
   gem 'thin'
+  gem 'jasmine'
 end
 
 
