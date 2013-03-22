@@ -6,6 +6,10 @@
   </div>
 </div>
 <div class="container">
+  <% unless @country_code.nil? %>
+    <div data-country-code='<%= @country_code %>'>
+    </div>
+  <% end %>
   <nav>
     <ul>
       <li>Youtube</li>

@@ -36,7 +36,9 @@ var VideoController = {
       var frame = [
           "<iframe id='ytplayer' type='text/html'",
           "width='450' height='275'",
-          "src='http://www.youtube.com/embed/" +VideoController.videos[i].id+ "?autoplay=1'",
+          "src='http://www.youtube.com/embed/",
+          VideoController.videos[i].id,
+          "?autoplay=1'",
           "frameborder='0'/>"
           ].join('');
       $('.selected-item').append(frame);
