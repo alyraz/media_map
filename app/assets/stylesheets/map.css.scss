@@ -7,9 +7,16 @@ $gray: #505050;
 }
 
 #logo {
-  position: relative;
-  left: 27%;
+  position: absolute;
+  bottom: 0.5em;
+  left: 0;
   margin: 0;
   font-family: "Satisfy";
   color: white;
+}
+
+.header {
+  position: relative;
+  width: 50%;
+  margin: auto;
 }
