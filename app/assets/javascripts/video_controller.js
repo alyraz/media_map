@@ -2,6 +2,13 @@ var VideoController = {
 
   videos: [],
 
+  init: function(){
+    var countryCode = $('#country').data('countryCode');
+    if(countryCode){
+      VideoController.retrieveVideos(countryCode);
+    }
+  },
+
   prepareURL: function(countryCode){
     return ["http://gdata.youtube.com",
             "/feeds/api/standardfeeds/",
