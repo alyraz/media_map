@@ -11,6 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+ .container {
+    width: 900px;
+    margin: auto;
+ }
+
 .jvectormap-label {
     position: absolute;
     display: none;
@@ -23,11 +29,12 @@
     font-family: sans-serif, Verdana;
     font-size: smaller;
     padding: 3px;
+    width: 300px;
 }
 
 .jvectormap-zoomin, .jvectormap-zoomout {
     position: absolute;
-    left: 10px;
+    margin: auto;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -47,4 +54,12 @@
 
 .jvectormap-zoomout {
     top: 30px;
+}
+
+#world-map {
+    margin: auto;
+}
+
+#videos {
+    margin-top: 10px;
 }
