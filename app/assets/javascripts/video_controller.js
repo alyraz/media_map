@@ -1,20 +1,4 @@
 var VideoController = {
-  init: function(){
-    this.bindToForm();
-  },
-
-  bindToForm: function(){
-    $('#video-request').on("submit", function(e){
-        e.preventDefault();
-        // TODO---> error check country code
-        VideoController.retrieveVideos(this);
-    });
-  },
-
-  lookUpCountryCode: function(form){
-    return $(form).children().val();
-  },
-
   prepareURL: function(countryCode){
     return ["http://gdata.youtube.com",
             "/feeds/api/standardfeeds/",
@@ -23,11 +7,10 @@ var VideoController = {
            ].join('');
   },
 
-  retrieveVideos: function(form){
-    var countryCode = VideoController.lookUpCountryCode(form);
+  retrieveVideos: function(code){
     $.ajax({
           type: "GET",
-          url: VideoController.prepareURL(countryCode),
+          url: VideoController.prepareURL(code),
           dataType: "json"})
         .done(function(youtubeObj){
           console.log("Ajax request successful!");
@@ -54,7 +37,3 @@ var VideoController = {
     }
   }
 };
-
-$(function(){
-  VideoController.init();
-});
