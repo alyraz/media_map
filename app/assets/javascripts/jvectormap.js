@@ -1,4 +1,5 @@
-$(function(){
+function instantiateMap(){
+
   var selectableRegions = ["US", "IN", "AR", "AU", "BE",
                            "BR", "CA", "CL", "CO", "CZ",
                            "EG", "FR", "DE", "GB", "HK",
@@ -19,6 +20,7 @@ $(function(){
 
   $('#world-map').vectorMap({
     onRegionClick: function(event, code){
+      clearMedia();
       VideoController.retrieveVideos(code);
     },
     regionStyle: {
@@ -32,4 +34,4 @@ $(function(){
       }]
     }
   });
-});
+};

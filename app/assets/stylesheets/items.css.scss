@@ -10,7 +10,7 @@
 }
 
 .display {
-  background-color: green;
+  background-color: #ccc;
   width: 70%;
   float: left;
 }
@@ -18,6 +18,9 @@
 .selected-item {
   width: 450px;
   margin: auto;
+  iframe {
+    display: none;
+  }
 }
 
 nav {

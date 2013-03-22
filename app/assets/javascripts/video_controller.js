@@ -2,25 +2,14 @@ var VideoController = {
 
   videos: [],
 
-  prepareURL: function(countryCode){
-    return ["http://gdata.youtube.com",
-            "/feeds/api/standardfeeds/",
-            countryCode,
-            "/most_viewed?v=2&time=today&max-results=1&alt=jsonc"
-           ].join('');
-  },
-
   retrieveVideos: function(code){
     $.ajax({
           type: "GET",
-          url: VideoController.prepareURL(code),
+          url: createUrl(code),
           dataType: "json"})
         .done(function(youtubeObj){
           console.log(youtubeObj);
-          var videos = youtubeObj.data.items;
-          for (var i = 0, length = videos.length; i< length; i++){
-            VideoController.videos.push(videos[i]);
-          }
+          VideoController.videos = youtubeObj.data.items;
           VideoController.render();
         })
         .fail(function(){
@@ -33,16 +22,17 @@ var VideoController = {
 
   render: function(){
     for(var i = 0, length = VideoController.videos.length; i < length; i++){ 
-      var frame = [
-          "<iframe id='ytplayer' type='text/html'",
-          "width='450' height='275'",
-          "src='http://www.youtube.com/embed/" +VideoController.videos[i].id+ "?autoplay=1'",
-          "frameborder='0'/>"
-          ].join('');
-      $('.selected-item').append(frame);
+      var thumbnail = VideoController.videos[i].thumbnail.sqDefault;
+      var id = VideoController.videos[i].id;
+      $('.top-items ul').append(createThumbnailList(id, thumbnail));
     }
+
+    var src = createSrc(VideoController.videos[0].id);
+    $('#ytplayer').attr("src", src).show();
   }
 };
+
+
 
  
 
