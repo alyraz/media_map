@@ -1,0 +1,2 @@
+module MasterHelper
+end
