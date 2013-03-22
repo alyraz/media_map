@@ -8,7 +8,6 @@ var VideoController = {
           url: createUrl(code),
           dataType: "json"})
         .done(function(youtubeObj){
-          console.log(youtubeObj);
           VideoController.videos = youtubeObj.data.items;
           VideoController.render();
         })

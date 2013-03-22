@@ -7,7 +7,7 @@ function instantiateMap(){
                            "JO", "MY", "MX", "MA", "NL", 
                            "NZ", "PE", "PH", "PL", "RU", 
                            "SA", "SG", "ZA", "KR", "ES", 
-                           "SE", "TW", "AE"];
+                           "SE", "TW", "AE", "DZ", "ID"];
 
   function createValuesMap(specialRegions) {
     var values = {};
