@@ -3,7 +3,7 @@ var VideoController = {
     return ["http://gdata.youtube.com",
             "/feeds/api/standardfeeds/",
             countryCode,
-            "/most_viewed?v=2&time=today&max-results=4&alt=jsonc"
+            "/most_viewed?v=2&time=today&max-results=1&alt=jsonc"
            ].join('');
   },
 
@@ -33,7 +33,7 @@ var VideoController = {
           "src='http://www.youtube.com/embed/" +videos[i].id+ "?autoplay=1'",
           "frameborder='0'/>"
           ].join('');
-      $('#videos').append(frame);
+      $('.selected-item').append(frame);
     }
   }
 };
