@@ -19,7 +19,7 @@ $(function(){
 
   $('#world-map').vectorMap({
     onRegionClick: function(event, code){
-      console.log(code)
+      VideoController.retrieveVideos(code);
     },
     regionStyle: {
       initial: {

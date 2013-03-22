@@ -33,7 +33,7 @@ var VideoController = {
           "src='http://www.youtube.com/embed/" +videos[i].id+ "?autoplay=1'",
           "frameborder='0'/>"
           ].join('');
-      $('#video').append(frame);
+      $('#videos').append(frame);
     }
   }
 };
