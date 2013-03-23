@@ -1,0 +1,5 @@
+<%= form_tag( :method => :post, :remote => true ) do %>
+  
+  <%= select_tag(options_for_select([['Today', 1],['This Week', 2],['This Month', 3],['All Time', 4]])) %>
+  <%= submit_tag 'Go!' %>
+<% end %>

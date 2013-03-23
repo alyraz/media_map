@@ -20,6 +20,7 @@ var MapController = {
   init: function(){
     $('#world-map').vectorMap({
       onRegionClick: function(event, code){
+        event.preventDefault();
         ViewController.clearMedia();
         $(location).attr("href", "#" + code.toLowerCase());
         VideoController.retrieveVideos(code);

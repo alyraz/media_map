@@ -2,7 +2,8 @@ function createUrl(countryCode){
   return ["http://gdata.youtube.com",
           "/feeds/api/standardfeeds/",
           countryCode,
-          "/most_viewed?v=2&time=today&max-results=4&alt=jsonc"
+          "/most_popular?v=2&time=today&max-results=4",
+          "&orderby=viewCount&alt=jsonc"
          ].join('');
 }
 
