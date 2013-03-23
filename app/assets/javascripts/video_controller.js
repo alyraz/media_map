@@ -3,9 +3,15 @@ var VideoController = {
   videos: [],
 
   init: function(){
-    var countryCode = $('#country').data('countryCode');
-    if(countryCode){
-      VideoController.retrieveVideos(countryCode);
+    var url = $(location).attr('href');
+    var urlCountryCode = /\/#\w{2}$/;
+
+    // test if url contains a country code
+    if(urlCountryCode.test(url)){
+      // strip country code from url
+      var countryCodeChars = /#\w{2}/;
+      var countryCode = countryCodeChars.exec(url)[0].replace("#", "");
+      VideoController.retrieveVideos(countryCode.toUpperCase());
     }
   },
 

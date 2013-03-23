@@ -21,6 +21,7 @@ var MapController = {
     $('#world-map').vectorMap({
       onRegionClick: function(event, code){
         ViewController.clearMedia();
+        $(location).attr("href", "#" + code.toLowerCase());
         VideoController.retrieveVideos(code);
       },
       backgroundColor: "#0a0b2a",
