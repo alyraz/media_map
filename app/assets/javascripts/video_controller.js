@@ -4,15 +4,15 @@ var VideoController = {
 
   init: function(){
     var url = $(location).attr('href');
-    if(/\/#\w{2}$/.test(url)){
-      var countryCode = /#\w{2}/.exec(url)[0].replace("#", "");
-      console.log(countryCode);
-    }
-    // strip out junk, see if hash is there. verify hash
+    var urlCountryCode = /\/#\w{2}$/;
 
-    // if(countryCode){
-    //   VideoController.retrieveVideos(countryCode);
-    // }
+    // test if url contains a country code
+    if(urlCountryCode.test(url)){
+      // strip country code from url
+      var countryCodeChars = /#\w{2}/;
+      var countryCode = countryCodeChars.exec(url)[0].replace("#", "");
+      VideoController.retrieveVideos(countryCode.toUpperCase());
+    }
   },
 
   retrieveVideos: function(code){

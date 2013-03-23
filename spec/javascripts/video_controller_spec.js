@@ -13,6 +13,4 @@ describe("VideoController", function(){
       expect(videos).toEqual(emptyArray);
     });
   });
-
-  
 });
