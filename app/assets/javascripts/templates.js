@@ -7,7 +7,7 @@ function createUrl(countryCode){
 }
 
 function createSrc(id){
-  return "http://www.youtube.com/embed/" +id+ "?enablejsapi=1&origin=http://localhost:3000";
+  return "http://www.youtube.com/embed/" +id+ "?autoplay=1&enablejsapi=1&origin=http://localhost:3000";
 }
 
 function createThumbnailList(videoID, thumbnail){
