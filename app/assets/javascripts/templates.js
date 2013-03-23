@@ -1,11 +1,15 @@
-function createUrl(countryCode){
+function createUrl(countryCode, timeFrame){
   return ["http://gdata.youtube.com",
           "/feeds/api/standardfeeds/",
           countryCode,
-          "/most_popular?v=2&time=today&max-results=4",
-          "&orderby=viewCount&alt=jsonc"
+          "/most_viewed?v=2&time=",
+          timeFrame,
+          "&max-results=4&orderby=viewCount&alt=jsonc"
          ].join('');
 }
+
+// the most viewed call is deprecated, but it's replacement, 'most_popular',
+// only supports time frames of today and all time...
 
 function createSrc(id){
   return "http://www.youtube.com/embed/" +id+ "?autoplay=1&enablejsapi=1&origin=http://localhost:3000";

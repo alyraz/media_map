@@ -15,10 +15,10 @@ var VideoController = {
     }
   },
 
-  retrieveVideos: function(code){
+  retrieveVideos: function(code, time){
     $.ajax({
       type: "GET",
-      url: createUrl(code),
+      url: createUrl(code, time),
       dataType: "json"})
     .done(function(youtubeObj){
       VideoController.videos = youtubeObj.data.items;

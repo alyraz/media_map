@@ -1,5 +1,9 @@
-<%= form_tag( :method => :post, :remote => true ) do %>
-  
-  <%= select_tag(options_for_select([['Today', 1],['This Week', 2],['This Month', 3],['All Time', 4]])) %>
-  <%= submit_tag 'Go!' %>
+<%= form_tag do %>
+  <%= label_tag( :time, "Top videos" ) %>
+  <%= select_tag( :time, 
+                  options_for_select([["Today", "today"],
+                                      ["This Week", "this_week"],
+                                      ["This Month", "this_month"],
+                                      ["All Time", "all_time"]])) %>
+  <%= submit_tag("Go!") %>
 <% end %>
