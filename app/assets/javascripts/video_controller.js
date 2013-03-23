@@ -33,12 +33,13 @@ var VideoController = {
   },
 
   render: function(){
-    for(var i = 0, length = VideoController.videos.length; i < length; i++){ 
+    for(var i = 0, length = VideoController.videos.length; i < length; i++){
       var thumbnail = VideoController.videos[i].thumbnail.sqDefault;
       var id = VideoController.videos[i].id;
-      $('.top-items ul').append(createThumbnailList(id, thumbnail));
+      console.log(VideoController.videos[i]);
+      $('.top-items ul').append(createThumbnailList(VideoController.videos[i]));
     }
     var src = createSrc(VideoController.videos[0].id);
     $('#ytplayer').attr("src", src).show();
   }
-}
+};

@@ -1,10 +1,31 @@
 .top-items {
-  width: 30%;
+  width: 35%;
   float: left;
   ul {
     margin: 0;
     //outline: 1px solid red;
     list-style: none;
     padding: 1em;
+    li {
+      clear: both;
+      padding: 10px 0 10px 0;
+      display: block;
+      a {
+        color: black;
+        text-decoration: none;
+        img {
+          float: left;
+        }
+        span {
+          display: block;
+          font-size: 12px;
+          padding: 5px 0 5px 130px;
+        }
+        span.thumbnail-title {
+          padding-top: 10px;
+          font-weight: 700;
+        }
+      }
+    }
   }
 }
