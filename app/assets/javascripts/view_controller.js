@@ -1,14 +1,16 @@
-function clearMedia(){
-  console.log("inside clear media");
-  $('.top-items li').remove();
-}
+var ViewController = {
+  
+  init: function(){
+    $('.top-items').on('click', '.tile', this.updateVideo);
+  },
 
-jQuery(document).ready(function($) {
-  instantiateMap();
-
-  $('.top-items').on('click', '.tile', function(){
+  updateVideo: function(){
     var id = $(this).attr('data-id');
     $('#ytplayer').attr("src", createSrc(id))
-  });
+  },
 
-});
+  clearMedia: function(){
+    console.log("inside clear media");
+    $('.top-items li').remove();
+  }
+};

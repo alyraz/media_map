@@ -2,6 +2,13 @@ var VideoController = {
 
   videos: [],
 
+  init: function(){
+    var countryCode = $('#country').data('countryCode');
+    if(countryCode){
+      VideoController.retrieveVideos(countryCode);
+    }
+  },
+
   retrieveVideos: function(code){
     $.ajax({
           type: "GET",
@@ -25,13 +32,7 @@ var VideoController = {
       var id = VideoController.videos[i].id;
       $('.top-items ul').append(createThumbnailList(id, thumbnail));
     }
-
     var src = createSrc(VideoController.videos[0].id);
     $('#ytplayer').attr("src", src).show();
   }
 };
-
-
-
- 
-
