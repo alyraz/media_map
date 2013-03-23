@@ -3,10 +3,16 @@ var VideoController = {
   videos: [],
 
   init: function(){
-    var countryCode = $('#country').data('countryCode');
-    if(countryCode){
-      VideoController.retrieveVideos(countryCode);
+    var url = $(location).attr('href');
+    if(/\/#\w{2}$/.test(url)){
+      var countryCode = /#\w{2}/.exec(url)[0].replace("#", "");
+      console.log(countryCode);
     }
+    // strip out junk, see if hash is there. verify hash
+
+    // if(countryCode){
+    //   VideoController.retrieveVideos(countryCode);
+    // }
   },
 
   retrieveVideos: function(code){
