@@ -1,22 +1,17 @@
 <div class="map">
-  <div class="header">
+  <div class="map-wrapper">
     <div id="world-map">
     </div>
-    <h1 id="logo">MediaMap</h1>
   </div>
 </div>
+<nav>
+  <span id="logo">MediaMap</span>
+</nav>
 <div class="container">
   <% unless @country_code.nil? %>
     <div id="country" data-country-code='<%= @country_code %>'>
     </div>
   <% end %>
-  <nav>
-    <ul>
-      <li>Youtube</li>
-      <li>Twitter</li>
-      <li>Collage</li>
-    </ul>
-  </nav>
   <div class="top-items">
     <ul>
     </ul>

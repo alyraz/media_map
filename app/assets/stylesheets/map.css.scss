@@ -3,20 +3,13 @@ $gray: #505050;
 
 .map {
   width: 100%;
-  background-color: $gray;
+  background-color: #0a0b2a;
+  padding-top: 5px;
 }
 
-#logo {
-  position: absolute;
-  bottom: 0.5em;
-  left: 0;
-  margin: 0;
-  font-family: "Satisfy";
-  color: white;
-}
-
-.header {
-  position: relative;
+.map-wrapper {
+  // position: relative;
   width: 50%;
   margin: auto;
+  height: 310px;
 }

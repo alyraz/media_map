@@ -23,11 +23,15 @@ var MapController = {
         ViewController.clearMedia();
         VideoController.retrieveVideos(code);
       },
+      backgroundColor: "#0a0b2a",
       regionStyle: {
         initial: {
           fill: "#b0b0b0"
         }
       },
+
+      //$('#world-map div').css("background-color", "#0a0b2a");
+
       series: {
         regions: [{
           values: this.createValuesMap(this.selectableRegions)
