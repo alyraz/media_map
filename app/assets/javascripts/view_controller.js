@@ -1,11 +1,14 @@
 var ViewController = {
 
   init: function(){
-    $('.top-items').on('click', '.tile', this.updateVideo);
+    $('.top-items').on('click', 'a', function(e){
+      e.preventDefault();
+      ViewController.updateVideo(this);
+    });
   },
 
-  updateVideo: function(){
-    var id = $(this).attr('data-id');
+  updateVideo: function(link){
+    var id = $(link).parent().attr('data-id');
     $('#ytplayer').attr("src", createSrc(id));
   },
 
