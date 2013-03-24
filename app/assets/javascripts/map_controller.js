@@ -9,10 +9,10 @@ var MapController = {
                       "SE", "SG", "SN", "TN", "TR", "TW",
                       "UA", "UG", "US", "YE", "ZA"],
 
-  createValuesMap: function(specialRegions){
+  createValuesMap: function(selectableRegions){
     var values = {};
-      for(var i = 0, length = specialRegions.length; i < length; i++) {
-        values[specialRegions[i]] = '#ffffff';
+      for(var i = 0, length = selectableRegions.length; i < length; i++) {
+        values[selectableRegions[i]] = '#99a';
       }
       return values;
   },
@@ -28,7 +28,7 @@ var MapController = {
       backgroundColor: "#0a0b2a",
       regionStyle: {
         initial: {
-          fill: "#b0b0b0"
+          fill: "#ccc"
         }
       },
       series: {
