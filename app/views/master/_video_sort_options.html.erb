@@ -1,8 +1,26 @@
 <%= form_tag do %>
-  <%= label_tag( :time, "Top videos" ) %>
+   <%= select_tag( :sort,
+                  options_for_select([["Most popular", "most_popular"],
+                                      ["Most discussed", "most_discussed"],
+                                      ["Most responded", "most_responded"],
+                                      ["Most subscribed", "most_subscribed"],
+                                      ["Top rated", "top_rated"],
+                                      ["Top favorited", "top_favorites"],]),
+                  { :class => "sort" }) %>
+  <%= label_tag( :time, "videos" ) %>
   <%= select_tag( :time, 
-                  options_for_select([["Today", "today"],
-                                      ["This Week", "this_week"],
-                                      ["This Month", "this_month"],
-                                      ["All Time", "all_time"]])) %>
+                  options_for_select([["today", "today"],
+                                      ["this week", "this_week"],
+                                      ["this month", "this_month"],
+                                      ["all time", "all_time"]]),
+                  { :class => "time" }) %>
+  <span>
+    <%= label_tag( :category, "category") %>
+    <%= select_tag( :category,
+                    options_for_select([["all", ""],
+                                        ["music", "_Music"],
+                                        ["news", "_News"],
+                                        ["entertainment", "_Entertainment"]]),
+                    { :class => "category"}) %>
+  </span>
 <% end %>

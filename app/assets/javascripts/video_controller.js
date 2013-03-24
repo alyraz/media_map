@@ -4,7 +4,7 @@ var VideoController = {
 
   init: function(){
     if (this.determineCountryCode()){
-      this.retrieveVideos(this.determineCountryCode(), "today");
+      this.retrieveVideos(this.determineCountryCode(), "most_popular", "today");
     }
   },
 
@@ -21,10 +21,10 @@ var VideoController = {
     }
   },
 
-  retrieveVideos: function(code, time){
+  retrieveVideos: function(code, sort, time, category){
     $.ajax({
       type: "GET",
-      url: createUrl(code, time),
+      url: createUrl(code, sort, time, category),
       dataType: "json"})
     .done(function(youtubeObj){
       VideoController.videos = youtubeObj.data.items;

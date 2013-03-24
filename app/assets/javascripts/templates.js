@@ -1,8 +1,8 @@
-function createUrl(countryCode, timeFrame){
+function createUrl(countryCode, sort, timeFrame, category){
   return ["http://gdata.youtube.com",
           "/feeds/api/standardfeeds/",
           countryCode,
-          "/most_viewed?v=2&time=",
+          "/"+sort+category+"?v=2&time=",
           timeFrame,
           "&max-results=4&orderby=viewCount&alt=jsonc"
          ].join('');
