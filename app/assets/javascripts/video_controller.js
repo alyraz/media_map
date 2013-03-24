@@ -3,6 +3,12 @@ var VideoController = {
   videos: [],
 
   init: function(){
+    if (this.determineCountryCode()){
+      this.retrieveVideos(this.determineCountryCode(), "today");
+    }
+  },
+
+  determineCountryCode: function(){
     var url = $(location).attr('href');
     var urlCountryCode = /\/#\w{2}$/;
 
@@ -11,18 +17,19 @@ var VideoController = {
       // strip country code from url
       var countryCodeChars = /#\w{2}/;
       var countryCode = countryCodeChars.exec(url)[0].replace("#", "");
-      VideoController.retrieveVideos(countryCode.toUpperCase());
+      return countryCode.toUpperCase();
     }
   },
 
   retrieveVideos: function(code, time){
+    console.log("inside retrieve videos");
     $.ajax({
       type: "GET",
       url: createUrl(code, time),
       dataType: "json"})
     .done(function(youtubeObj){
       VideoController.videos = youtubeObj.data.items;
-      VideoController.render();
+      ViewController.render(VideoController.videos);
     })
     .fail(function(){
       console.log("There was an error");
@@ -30,16 +37,6 @@ var VideoController = {
     .always(function(){
       console.log("I'm always doing this");
     });
-  },
-
-  render: function(){
-    for(var i = 0, length = VideoController.videos.length; i < length; i++){
-      var thumbnail = VideoController.videos[i].thumbnail.sqDefault;
-      var id = VideoController.videos[i].id;
-      console.log(VideoController.videos[i]);
-      $('.top-items ul').append(createThumbnailList(VideoController.videos[i]));
-    }
-    var src = createSrc(VideoController.videos[0].id);
-    $('#ytplayer').attr("src", src).show();
   }
+
 };

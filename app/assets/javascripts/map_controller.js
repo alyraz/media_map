@@ -23,7 +23,7 @@ var MapController = {
         event.preventDefault();
         ViewController.clearMedia();
         $(location).attr("href", "#" + code.toLowerCase());
-        VideoController.retrieveVideos(code, "today");
+        VideoController.retrieveVideos(code, FormController.determineActiveSelection());
       },
       backgroundColor: "#0a0b2a",
       regionStyle: {
