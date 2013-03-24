@@ -12,33 +12,57 @@ var MapController = {
   createValuesMap: function(selectableRegions){
     var values = {};
       for(var i = 0, length = selectableRegions.length; i < length; i++) {
-        values[selectableRegions[i]] = '#99a';
+        values[selectableRegions[i]] = '#009999'; // OR -- #99a 
       }
       return values;
   },
 
+  checkIfSelectable: function(code){
+    for(var i = 0, length = this.selectableRegions.length; i < length; i++) {
+      if (MapController.selectableRegions[i] === code) return true;
+    }
+    return false;
+  },
+
   init: function(){
     $('#world-map').vectorMap({
-      onRegionClick: function(event, code){
+
+    onRegionLabelShow: function(event, label, code){
+      if(!MapController.checkIfSelectable(code)) {
         event.preventDefault();
-        ViewController.clearMedia();
-        $(location).attr("href", "#" + code.toLowerCase());
-        VideoController.retrieveVideos(code,
+      }
+    },
+
+    onRegionOver: function(event, code){
+      if(!MapController.checkIfSelectable(code)) {
+        event.preventDefault();
+      }
+    },
+
+    onRegionClick: function(event, code){
+      event.preventDefault();
+      ViewController.clearMedia();
+      $(location).attr("href", "#" + code.toLowerCase()); // for mod URL
+      VideoController.retrieveVideos(code,
                                        FormController.determineSortSelection(),
                                        FormController.determineTimeSelection(),
                                        FormController.determineCategorySelection());
-      },
-      backgroundColor: "#0a0b2a",
-      regionStyle: {
-        initial: {
-          fill: "#ccc"
-        }
-      },
-      series: {
-        regions: [{
-          values: this.createValuesMap(this.selectableRegions)
-        }]
+    },
+
+    backgroundColor: "#0a0b2a",
+    regionStyle: {
+      initial: {
+        fill: "#aaa"
       }
+    },
+
+    series: {
+      regions: [{
+        values: this.createValuesMap(this.selectableRegions)
+      }]
+    }
+
+
     });
   }
 };
