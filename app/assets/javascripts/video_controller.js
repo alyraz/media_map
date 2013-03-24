@@ -22,7 +22,6 @@ var VideoController = {
   },
 
   retrieveVideos: function(code, time){
-    console.log("inside retrieve videos");
     $.ajax({
       type: "GET",
       url: createUrl(code, time),
