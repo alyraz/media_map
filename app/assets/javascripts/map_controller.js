@@ -14,8 +14,8 @@ var MapController = {
     var values = {};
       for(var i = 0, length = selectableRegions.length; i < length; i++) {
         values[selectableRegions[i]] = '#CADFAA';
+      }
       return values;
-    }
   },
 
   checkIfSelectable: function(code){
