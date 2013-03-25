@@ -29,6 +29,15 @@ var MapController = {
     return this.selectableRegions[Math.floor(Math.random() * this.selectableRegions.length)];
   },
 
+  displayMedia: function(code){
+    ViewController.clearMedia();
+    VideoController.retrieveVideos(code,
+                                   FormController.sortBySelection(),
+                                   FormController.timeSelection(),
+                                   FormController.categorySelection(),
+                                   VideoController.defaultVideoQuery);
+  },
+
   init: function(){
     this.map = new jvm.WorldMap({
       container: $('#world-map'),
@@ -68,23 +77,18 @@ var MapController = {
         }
       },
 
+      onRegionClick: function(e, code){
+        if(!MapController.checkIfSelectable(code))
+          e.preventDefault();
+      },
+
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         // Note: This function is called twice:
         // 1) once when a region is *selected*; and
         // 2) once when a region is *deselected*.
         if(isSelected){
-          console.log("loading videos for " + code);
-          ViewController.clearMedia();
-          if (!MapController.checkIfSelectable(code)) {
-            $('.video').append(ViewController.noDataMessage(code));
-          } else {
-            MapController.selectedCountry = code;
-            VideoController.retrieveVideos(code,
-                                           FormController.sortBySelection(),
-                                           FormController.timeSelection(),
-                                           FormController.categorySelection(),
-                                           VideoController.defaultVideoQuery);
-          }
+          MapController.selectedCountry = code;
+          MapController.displayMedia(code);
         }
       }
     });
