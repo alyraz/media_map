@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130323005148) do
+ActiveRecord::Schema.define(:version => 20130324215925) do
 
   create_table "entries", :force => true do |t|
-    t.integer  "video_id"
     t.integer  "position"
     t.integer  "top_id"
     t.datetime "created_at", :null => false
@@ -25,12 +24,16 @@ ActiveRecord::Schema.define(:version => 20130323005148) do
     t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "frequency"
+    t.integer  "sort_type"
+    t.integer  "category"
   end
 
   create_table "videos", :force => true do |t|
-    t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "youtube_video_id"
+    t.integer  "entry_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end
