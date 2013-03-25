@@ -15,13 +15,13 @@
                                         ["news", "_News"],
                                         ["entertainment", "_Entertainment"]]),
                     { :class => "category" }) %>
-    <span> videos of </span>
+    <span> videos from </span><br />
     <%= select_tag( :time, 
                     options_for_select([["today", "today"],
                                         ["this week", "this_week"],
                                         ["this month", "this_month"],
                                         ["all time", "all_time"]]),
-                    { :class => "time" }) %>
-    <span> for some country</span>
+                    { :class => "time" }) %><br />
+    <span> for Uganda.</span>
   </div>
 <% end %>
