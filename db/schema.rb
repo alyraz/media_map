@@ -15,18 +15,19 @@ ActiveRecord::Schema.define(:version => 20130324215925) do
 
   create_table "entries", :force => true do |t|
     t.integer  "position"
-    t.integer  "top_id"
+    t.integer  "share_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "tops", :force => true do |t|
+  create_table "shares", :force => true do |t|
     t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "frequency"
     t.integer  "sort_type"
     t.integer  "category"
+    t.string   "short_url"
   end
 
   create_table "videos", :force => true do |t|
