@@ -70,7 +70,7 @@ var VideoController = {
             timeFrame,
             "&max-results=",
             num,
-            "&orderby=viewCount&alt=jsonc"
+            "&alt=jsonc"
            ].join('');
   }
 };
