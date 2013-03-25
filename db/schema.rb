@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130324215925) do
   create_table "entries", :force => true do |t|
     t.integer  "position"
     t.integer  "share_id"
+    t.integer  "video_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -24,15 +25,14 @@ ActiveRecord::Schema.define(:version => 20130324215925) do
     t.string   "country"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "frequency"
-    t.integer  "sort_type"
-    t.integer  "category"
+    t.string   "time"
+    t.string   "sort_type"
+    t.string   "category"
     t.string   "short_url"
   end
 
   create_table "videos", :force => true do |t|
-    t.integer  "youtube_video_id"
-    t.integer  "entry_id"
+    t.string   "youtube_video_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

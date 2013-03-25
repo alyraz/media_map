@@ -1,4 +1,4 @@
-class AddFieldsToTopsTable < ActiveRecord::Migration
+class AddFieldsToSharesTable < ActiveRecord::Migration
   def change
     add_column :shares, :frequency, :integer
     add_column :shares, :sort_type, :integer

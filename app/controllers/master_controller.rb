@@ -1,4 +1,6 @@
 class MasterController < ApplicationController
+  include ShareHelpers
+
   respond_to :json
   
   def index
@@ -11,23 +13,17 @@ class MasterController < ApplicationController
   # end
 
   def share
-    puts "--------------------------------"
-    puts params
     share = Share.new(params[:shareData])
-     if share.save
-       render :json => {data: "success"}.to_json
-     else
-      render :json => {data: "fail"}.to_json
+    if share.save
+      save_videos(share, params[:videos])
+       render :json => {data: share.short_url}.to_json
+    else
+      render :json => {data: "failed"}.to_json
     end
   end
 
   def show
     @share = Share.find_by_short_url(params[:short_url])
-    if @share
-      render :json => {:country   => @share.country,
-                               :frequency => @share.frequency,
-                               :sort_type => @share.sort_type,
-                               :category  => @share.category}.to_json
-    end
+    @entries = @share.entries
   end
 end
