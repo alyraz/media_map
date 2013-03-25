@@ -14,7 +14,6 @@ var ViewController = {
 
   clearMedia: function(){
     $('.top-items ul li.tile').remove();
-    $('#ytplayer').attr("src", "");
   },
 
   createSrc: function(id){

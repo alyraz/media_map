@@ -1,21 +1,21 @@
 var MapController = {
  
   selectableRegions: ["AE", "AR", "AU", "BE", "BR", "CA",
-                      "CL", "CO", "CZ", "DE", "DK", "DZ",
-                      "EG", "ES", "FI", "FR", "GB", "GH",
+                      "CL", "CO", "CZ", "DE", "DZ",
+                      "EG", "ES", "FR", "GB", "GH",
                       "GR", "HK", "HU", "ID", "IE", "IL",
                       "IN", "IT", "JO", "JP", "KE", "KR",
-                      "MA", "MX", "MY", "NG", "NL", "NO",
+                      "MA", "MX", "MY", "NG", "NL",
                       "NZ", "PE", "PH", "PL", "RU", "SA",
-                      "SE", "SG", "SN", "TN", "TR", "TW",
-                      "UA", "UG", "US", "YE", "ZA"],
+                      "SE", "SG", "TN", "TR", "TW",
+                      "UG", "US", "YE", "ZA"],
 
   createValuesMap: function(selectableRegions){
     var values = {};
       for(var i = 0, length = selectableRegions.length; i < length; i++) {
-        values[selectableRegions[i]] = '#CADFAA'; // OR -- #99a
-      }
+        values[selectableRegions[i]] = '#CADFAA';
       return values;
+    }
   },
 
   checkIfSelectable: function(code){
