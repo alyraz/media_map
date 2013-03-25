@@ -1,6 +1,5 @@
 var MapController = {
-  selectedCountry: 'US',
-
+ 
   selectableRegions: ["AE", "AR", "AU", "BE", "BR", "CA",
                       "CL", "CO", "CZ", "DE", "DK", "DZ",
                       "EG", "ES", "FI", "FR", "GB", "GH",
