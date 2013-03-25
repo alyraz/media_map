@@ -31,6 +31,12 @@ var ViewController = {
             " views</span></a></li>"].join('');
   },
 
+
+  noDataMessage: function(code){
+    return ["<h4> We're sorry but the YouTube API does not support",
+            "queries for this country. Please try a different one!</h4>"].join('');
+  },
+
   render: function(videos){
     this.clearMedia();
     for(var i = 0; i < videos.length; i++){

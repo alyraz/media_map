@@ -74,13 +74,17 @@ var MapController = {
         // 2) once when a region is *deselected*.
         if(isSelected){
           console.log("loading videos for " + code);
-          MapController.selectedCountry = code;
           ViewController.clearMedia();
-          VideoController.retrieveVideos(code,
-                                         FormController.sortBySelection(),
-                                         FormController.timeSelection(),
-                                         FormController.categorySelection(),
-                                         VideoController.defaultVideoQuery);
+          if (!MapController.checkIfSelectable(code)) {
+            $('.video').append(ViewController.noDataMessage(code));
+          } else {
+            MapController.selectedCountry = code;
+            VideoController.retrieveVideos(code,
+                                           FormController.sortBySelection(),
+                                           FormController.timeSelection(),
+                                           FormController.categorySelection(),
+                                           VideoController.defaultVideoQuery);
+          }
         }
       }
     });
