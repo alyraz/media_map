@@ -159,7 +159,7 @@ DEPENDENCIES
   faker
   jasmine
   jquery-rails
-  pg (= 0.12.2)
+  pg
   quiet_assets
   rails (= 3.2.12)
   rspec-rails (= 2.11.0)
