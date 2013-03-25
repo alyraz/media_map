@@ -5,13 +5,23 @@ var FormController = {
 
   sendSelection: function(){
     $('form').change(function(){
-      time = FormController.determineActiveSelection();
+      time = FormController.determineTimeSelection();
+      sort = FormController.determineSortSelection();
       countryCode = VideoController.determineCountryCode();
-      VideoController.retrieveVideos(countryCode, time);
+      category = FormController.determineCategorySelection();
+      VideoController.retrieveVideos(countryCode, sort, time, category);
     });
   },
 
-  determineActiveSelection: function(){
-    return $('form').find('option:selected').val();
+  determineSortSelection: function(){
+    return $('.sort').find('option:selected').val();
+  },
+
+  determineTimeSelection: function(){
+    return $('.time').find('option:selected').val();
+  },
+
+  determineCategorySelection: function(){
+    return $('.category').find('option:selected').val();
   }
 };
