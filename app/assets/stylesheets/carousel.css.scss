@@ -1,25 +1,26 @@
 .video-carousel {
   clear: both;
-	background-color: purple;
   position: relative;
 }
 
 .top-items {
   overflow-x: scroll;
+  background-color: #eee;
+  border-radius: 1em;
+  padding: 10px;
   white-space: nowrap;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   height: 100px;
   ul {
     margin: 0;
     padding: 5px 0 0 0;
-    height: 100px;
     list-style: none;
     display: inline;
     li {
       clear: both;
       white-space: normal;
       vertical-align: top;
-      height: 80%;
       width: 300px;
       padding: 5px 10px 5px 10px;
       list-style: none;
@@ -42,7 +43,7 @@
       }
     }
     li:hover {
-      background-color: grey;
+      background-color: #ccc;
       border-radius: 5px;
       a {
         text-decoration: underline;
@@ -50,9 +51,10 @@
     }
     li.fetch-videos {
       width: 15px;
-      height: 65px;
       font-size: 50px;
-      padding-top: 20px;
+      a {
+        line-height: 90px;
+      }
     }
     li.fetch-videos:hover {
       a {
