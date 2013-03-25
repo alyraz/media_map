@@ -1,8 +1,20 @@
 .logo {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 20%;
-	background-color: red;
-	float: left;
+	top: 280px;
+	left: -180px;
+
+	font-family: Helvetica;
+  h1 {
+    font-size: 8em;
+    margin: 0;
+    color: #fffd8b;
+  }
+}
+
+.rotate {
+  -webkit-transform: rotate(-90deg);
+   -moz-transform: rotate(-90deg);
+   -ms-transform: rotate(-90deg);
+   -o-transform: rotate(-90deg);
+   transform: rotate(-90deg);
 }

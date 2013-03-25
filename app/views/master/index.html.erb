@@ -1,18 +1,23 @@
+<div class="logo rotate">
+  <h1>MediaMap</h1>
+</div>
+
 <div class="map">
   <div id="world-map">
   </div>
 </div>
-<div class="logo">
-  hello
-</div>
-<div class="video">
-  <div class="selected-item">
-    <iframe id='ytplayer' type='text/html' 
-            width='550' height='335' 
-            src='' frameborder='0'>
-    </iframe>
+
+<div class="focus">
+  <div class="video-container">
+    <div class="selected-item">
+      <iframe id='ytplayer' type='text/html' 
+              width='550' height='335' 
+              src='' frameborder='0'>
+      </iframe>
+    </div>
   </div>
 </div>
+
 <div class="search-info">
   <span>
     <%= render "video_sort_options" %>
@@ -23,6 +28,7 @@
     </form>
   </div>
 </div>
+
 <div class="video-carousel">
   <div class="top-items">
     <ul>

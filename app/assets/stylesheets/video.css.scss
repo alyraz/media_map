@@ -1,13 +1,22 @@
-.video {
-	width: 60%;
-	position: relative;
-	left: 20%;
-	background-color: green;
+$iframe-width: 550px;
+
+.focus {
+  width: 720px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.video-container {
+	background-color: #eee;
+  border-radius: 1em;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .selected-item {
-  padding-top: 10px;
-  width: 550px;
+  padding: 1em 0;
+  width: $iframe-width;
   margin: auto;
   iframe {
     display: none;
