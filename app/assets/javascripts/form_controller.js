@@ -13,15 +13,12 @@ var FormController = {
     });
   },
 
-<<<<<<< HEAD
-  determineSortSelection: function(){
-=======
+
   // determineActiveSelection: function(){
   //   return $('form').find('option:selected').val();
   // },
 
   sortBySelection: function(){
->>>>>>> remove hash from URL and add selectedCountry attribute to MapController
     return $('.sort').find('option:selected').val();
   },
 
