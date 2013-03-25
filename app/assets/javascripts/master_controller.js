@@ -1,4 +1,5 @@
 $(function(){
+  ShareController.init();
   VideoController.init();
   MapController.init();
   ViewController.init();
