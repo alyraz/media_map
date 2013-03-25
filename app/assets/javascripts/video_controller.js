@@ -24,7 +24,7 @@ var VideoController = {
   retrieveVideos: function(code, sort, time, category){
     $.ajax({
       type: "GET",
-      url: createUrl(code, sort, time, category),
+      url: this.createUrl(code, sort, time, category),
       dataType: "json"})
     .done(function(youtubeObj){
       VideoController.videos = youtubeObj.data.items;
@@ -36,6 +36,15 @@ var VideoController = {
     .always(function(){
       console.log("I'm always doing this");
     });
-  }
+  },
 
+  createUrl: function(countryCode, sort, timeFrame, category){
+    return ["http://gdata.youtube.com",
+            "/feeds/api/standardfeeds/",
+            countryCode,
+            "/"+sort+category+"?v=2&time=",
+            timeFrame,
+            "&max-results=4&orderby=viewCount&alt=jsonc"
+           ].join('');
+  }
 };

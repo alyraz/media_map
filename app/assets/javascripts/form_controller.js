@@ -13,10 +13,6 @@ var FormController = {
     });
   },
 
-  // determineActiveSelection: function(){
-  //   return $('form').find('option:selected').val();
-  // },
-
   determineSortSelection: function(){
     return $('.sort').find('option:selected').val();
   },
