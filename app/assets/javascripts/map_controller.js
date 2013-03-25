@@ -12,16 +12,14 @@ var MapController = {
 
   createValuesMap: function(selectableRegions){
     var values = {};
-      for(var i = 0, length = selectableRegions.length; i < length; i++) {
+      for(var i = 0, length = selectableRegions.length; i < length; i++)
         values[selectableRegions[i]] = '#CADFAA';
-      }
       return values;
   },
 
   checkIfSelectable: function(code){
-    for(var i = 0, length = this.selectableRegions.length; i < length; i++) {
+    for(var i = 0, length = this.selectableRegions.length; i < length; i++)
       if (MapController.selectableRegions[i] === code) return true;
-    }
     return false;
   },
 
@@ -65,16 +63,14 @@ var MapController = {
 
       // turn off labels for unsupported countries
       onRegionLabelShow: function(event, label, code){
-        if(!MapController.checkIfSelectable(code)) {
+        if(!MapController.checkIfSelectable(code))
           event.preventDefault();
-        }
       },
 
       // turn off hover state for unsupported countries
       onRegionOver: function(event, code){
-        if(!MapController.checkIfSelectable(code)) {
+        if(!MapController.checkIfSelectable(code))
           event.preventDefault();
-        }
       },
 
       onRegionClick: function(e, code){
