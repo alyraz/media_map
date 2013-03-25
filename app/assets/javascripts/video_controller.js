@@ -3,11 +3,26 @@ var VideoController = {
   videos: [],
 
   init: function(){
-    this.retrieveVideos(MapController.selectedCountry, "most_popular", "today");
+    this.defaultVideoQuery = 4;
+    this.additionalVideos = 4;
+    this.retrieveVideos(MapController.selectedCountry, "most_popular", "today", this.defaultVideoQuery);
+    this.getMoreVideos();
+  },
+
+  getMoreVideos: function(){
+    $('.top-items').on('click', '.fetch-videos', function(e){
+      e.preventDefault();
+      time = FormController.timeSelection();
+      sort = FormController.sortBySelection();
+      code = MapController.selectedCountry;
+      category = FormController.categorySelection();
+      VideoController.additionalVideos += 10;
+      VideoController.retrieveVideos(code, sort, time, category, VideoController.additionalVideos);
+    });
   },
 
   // I don't think we need any of this but don't want to delete
-  // without group approval, manana. 
+  // without group approval, manana.
 
   // init: function(){
   //   if (this.determineCountryCode()){
@@ -30,10 +45,10 @@ var VideoController = {
   //   }
   // },
 
-  retrieveVideos: function(code, sortBy, time, category){
+  retrieveVideos: function(code, sortBy, time, category, num){
     $.ajax({
       type: "GET",
-      url: createUrl(code, sortBy, time, category),
+      url: this.createUrl(code, sortBy, time, category, num),
       dataType: "json"})
     .done(function(youtubeObj){
       VideoController.videos = youtubeObj.data.items;
@@ -47,13 +62,15 @@ var VideoController = {
     });
   },
 
-  createUrl: function(countryCode, sort, timeFrame, category){
+  createUrl: function(countryCode, sort, timeFrame, category, num){
     return ["http://gdata.youtube.com",
             "/feeds/api/standardfeeds/",
             countryCode,
             "/"+sort+category+"?v=2&time=",
             timeFrame,
-            "&max-results=4&orderby=viewCount&alt=jsonc"
+            "&max-results=",
+            num,
+            "&orderby=viewCount&alt=jsonc"
            ].join('');
   }
 };

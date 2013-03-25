@@ -13,7 +13,7 @@ var MapController = {
   createValuesMap: function(selectableRegions){
     var values = {};
       for(var i = 0, length = selectableRegions.length; i < length; i++) {
-        values[selectableRegions[i]] = '#CADFAA'; // OR -- #99a 
+        values[selectableRegions[i]] = '#CADFAA'; // OR -- #99a
       }
       return values;
   },
@@ -46,7 +46,7 @@ var MapController = {
         },
         selected: {
           fill: 'green'
-        },
+        }
       },
       series: {
         regions: [{
@@ -69,7 +69,7 @@ var MapController = {
       },
 
       onRegionSelected: function(e, code, isSelected, selectedRegions){
-        // Note: This function is called twice: 
+        // Note: This function is called twice:
         // 1) once when a region is *selected*; and
         // 2) once when a region is *deselected*.
         if(isSelected){
@@ -77,9 +77,10 @@ var MapController = {
           MapController.selectedCountry = code;
           ViewController.clearMedia();
           VideoController.retrieveVideos(code,
-                                           FormController.sortBySelection(),
-                                           FormController.timeSelection(),
-                                           FormController.categorySelection());
+                                         FormController.sortBySelection(),
+                                         FormController.timeSelection(),
+                                         FormController.categorySelection(),
+                                         VideoController.defaultVideoQuery);
         }
       }
     });

@@ -1,21 +1,26 @@
 .video-carousel {
 	background-color: purple;
-	position: absolute;
+  position: relative;
 }
 
 .top-items {
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 100%;
+  height: 100px;
   ul {
     margin: 0;
-    padding: 0;
+    padding: 5px 0 0 0;
     height: 100px;
     list-style: none;
     display: inline;
     li {
       clear: both;
+      white-space: normal;
       vertical-align: top;
       height: 80%;
-      width: 20%;
-      padding: 0 10px 0 10px;
+      width: 300px;
+      padding: 5px 10px 5px 10px;
       list-style: none;
       display: inline-block;
       a {
@@ -36,7 +41,22 @@
       }
     }
     li:hover {
-
+      background-color: grey;
+      border-radius: 5px;
+      a {
+        text-decoration: underline;
+      }
+    }
+    li.fetch-videos {
+      width: 15px;
+      height: 65px;
+      font-size: 50px;
+      padding-top: 20px;
+    }
+    li.fetch-videos:hover {
+      a {
+        text-decoration: none;
+      }
     }
   }
 }

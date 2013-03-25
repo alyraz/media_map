@@ -13,7 +13,7 @@ var ViewController = {
   },
 
   clearMedia: function(){
-    $('.top-items li').remove();
+    $('.top-items ul li.tile').remove();
     $('#ytplayer').attr("src", "");
   },
 
@@ -36,7 +36,7 @@ var ViewController = {
     for(var i = 0; i < videos.length; i++){
       var thumbnail = videos[i].thumbnail.sqDefault;
       var id = videos[i].id;
-      $('.top-items ul').append(ViewController.createThumbnailList(videos[i]));
+      $('.top-items ul').prepend(ViewController.createThumbnailList(videos[i]));
     }
     var src = this.createSrc(videos[0].id);
     $('#ytplayer').attr("src", src).show();

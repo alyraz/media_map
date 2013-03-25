@@ -9,7 +9,8 @@ var FormController = {
       sort = FormController.sortBySelection();
       countryCode = MapController.selectedCountry;
       category = FormController.categorySelection();
-      VideoController.retrieveVideos(countryCode, sort, time, category);
+      num = VideoController.defaultVideoQuery;
+      VideoController.retrieveVideos(countryCode, sort, time, category, num);
     });
   },
 
