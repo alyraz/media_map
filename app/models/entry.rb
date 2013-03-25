@@ -2,5 +2,5 @@ class Entry < ActiveRecord::Base
   attr_accessible :position, :video_id
 
   belongs_to :share
-  has_one :video
+  belongs_to :video
 end
