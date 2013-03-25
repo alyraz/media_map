@@ -18,7 +18,7 @@ var ViewController = {
   },
 
   createSrc: function(id){
-    return "http://www.youtube.com/embed/" +id+ "?autoplay=1&enablejsapi=1";
+    return "http://www.youtube.com/embed/" +id+ "?autoplay=0&enablejsapi=1";
   },
 
   createThumbnailList: function(video){
