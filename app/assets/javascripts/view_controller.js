@@ -23,7 +23,7 @@ var ViewController = {
 
   createThumbnailList: function(video){
     return ["<li class='tile' data-id='"+video.id+"'><a href='#' class='tile-link'>",
-            "<img src='"+video.thumbnail.sqDefault+"'/>",
+            "<img src='"+video.thumbnail.sqDefault+"' heigh='80' width='107'>",
             "<span class='thumbnail-title'>",
             video.title,
             "</span><span>",

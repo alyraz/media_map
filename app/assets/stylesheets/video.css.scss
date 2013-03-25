@@ -1,0 +1,15 @@
+.video {
+	width: 60%;
+	position: relative;
+	left: 20%;
+	background-color: green;
+}
+
+.selected-item {
+  padding-top: 10px;
+  width: 550px;
+  margin: auto;
+  iframe {
+    display: none;
+  }
+}

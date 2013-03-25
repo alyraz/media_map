@@ -1,26 +1,29 @@
 <div class="map">
-  <div class="map-wrapper">
-    <div id="world-map">
-    </div>
+  <div id="world-map">
   </div>
 </div>
-<nav>
+<!-- <nav>
   <span id="logo">mediaMap</span>
-</nav>
-<div class="container">
+</nav> -->
+<div class="logo">
+  hello
+</div>
+<div class="video">
+  <div class="selected-item">
+    <iframe id='ytplayer' type='text/html' 
+            width='550' height='335' 
+            src='' frameborder='0'>
+    </iframe>
+  </div>
+</div>
+<div class="search-info">
+  <span>
+    <%= render "video_sort_options" %>
+  </span>
+</div>
+<div class="video-carousel">
   <div class="top-items">
-    <span>
-      <%= render "video_sort_options" %>
-    </span>
     <ul>
     </ul>
-  </div>
-  <div class="display">
-    <div class="selected-item">
-      <iframe id='ytplayer' type='text/html' 
-              width='517.5' height='316.25' 
-              src='' frameborder='0'>
-      </iframe>
-    </div>
   </div>
 </div>

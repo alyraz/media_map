@@ -1,26 +1,27 @@
 <%= form_tag do %>
-   <%= select_tag( :sort,
-                  options_for_select([["Most popular", "most_popular"],
-                                      ["Most discussed", "most_discussed"],
-                                      ["Most responded", "most_responded"],
-                                      ["Most subscribed", "most_subscribed"],
-                                      ["Top rated", "top_rated"],
-                                      ["Top favorited", "top_favorites"],]),
-                  { :class => "sort" }) %>
-  <%= label_tag( :time, "videos" ) %>
-  <%= select_tag( :time, 
-                  options_for_select([["today", "today"],
-                                      ["this week", "this_week"],
-                                      ["this month", "this_month"],
-                                      ["all time", "all_time"]]),
-                  { :class => "time" }) %>
-  <span>
-    <%= label_tag( :category, "category") %>
+  <div>
+    <span>You are watching the </span>
+    <%= select_tag( :sort,
+                    options_for_select([["most popular", "most_popular"],
+                                        ["most discussed", "most_discussed"],
+                                        ["most responded", "most_responded"],
+                                        ["most subscribed", "most_subscribed"],
+                                        ["top rated", "top_rated"],
+                                        ["top favorited", "top_favorites"],]),
+                    { :class => "sort" }) %>
     <%= select_tag( :category,
-                    options_for_select([["all", ""],
+                    options_for_select([["", ""],
                                         ["music", "_Music"],
                                         ["news", "_News"],
                                         ["entertainment", "_Entertainment"]]),
                     { :class => "category" }) %>
-  </span>
+    <span> videos of </span>
+    <%= select_tag( :time, 
+                    options_for_select([["today", "today"],
+                                        ["this week", "this_week"],
+                                        ["this month", "this_month"],
+                                        ["all time", "all_time"]]),
+                    { :class => "time" }) %>
+    <span> for some country</span>
+  </div>
 <% end %>
