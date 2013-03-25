@@ -3,28 +3,37 @@ var VideoController = {
   videos: [],
 
   init: function(){
-    if (this.determineCountryCode()){
-      this.retrieveVideos(this.determineCountryCode(), "most_popular", "today");
-    }
+    this.retrieveVideos(MapController.selectedCountry, "most_popular", "today");
   },
 
-  determineCountryCode: function(){
-    var url = $(location).attr('href');
-    var urlCountryCode = /\/#\w{2}$/;
+  // I don't think we need any of this but don't want to delete
+  // without group approval, manana. 
 
-    // test if url contains a country code
-    if(urlCountryCode.test(url)){
-      // strip country code from url
-      var countryCodeChars = /#\w{2}/;
-      var countryCode = countryCodeChars.exec(url)[0].replace("#", "");
-      return countryCode.toUpperCase();
-    }
-  },
+  // init: function(){
+  //   if (this.determineCountryCode()){
+  //     this.retrieveVideos(this.determineCountryCode(), "most_popular", "today");
+  //   }
+  // },
 
-  retrieveVideos: function(code, sort, time, category){
+  // determineCountryCode: function(){
+
+
+  //   var url = $(location).attr('href');
+  //   var urlCountryCode = /\/#\w{2}$/;
+
+  //   // test if url contains a country code
+  //   if(urlCountryCode.test(url)){
+  //     // strip country code from url
+  //     var countryCodeChars = /#\w{2}/;
+  //     var countryCode = countryCodeChars.exec(url)[0].replace("#", "");
+  //     return countryCode.toUpperCase();
+  //   }
+  // },
+
+  retrieveVideos: function(code, sortBy, time, category){
     $.ajax({
       type: "GET",
-      url: this.createUrl(code, sort, time, category),
+      url: createUrl(code, sortBy, time, category),
       dataType: "json"})
     .done(function(youtubeObj){
       VideoController.videos = youtubeObj.data.items;

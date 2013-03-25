@@ -1,4 +1,8 @@
 var MapController = {
+  
+  //TODO -----> default country to wherever the user is located
+  selectedCountry: 'US',
+
   selectableRegions: ["AE", "AR", "AU", "BE", "BR", "CA",
                       "CL", "CO", "CZ", "DE", "DK", "DZ",
                       "EG", "ES", "FI", "FR", "GB", "GH",
@@ -41,12 +45,12 @@ var MapController = {
 
     onRegionClick: function(event, code){
       event.preventDefault();
+      MapController.selectedCountry = code;
       ViewController.clearMedia();
-      $(location).attr("href", "#" + code.toLowerCase()); // for mod URL
       VideoController.retrieveVideos(code,
-                                       FormController.determineSortSelection(),
-                                       FormController.determineTimeSelection(),
-                                       FormController.determineCategorySelection());
+                                       FormController.sortBySelection(),
+                                       FormController.timeSelection(),
+                                       FormController.categorySelection());
     },
 
     backgroundColor: "#0a0b2a",
