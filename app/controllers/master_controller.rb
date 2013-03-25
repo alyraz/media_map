@@ -9,4 +9,8 @@ class MasterController < ApplicationController
   #   puts params[:time]
   #   render :json => {:time => params[:time]}.to_json
   # end
+
+  def share
+    puts params
+  end
 end
