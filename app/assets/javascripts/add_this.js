@@ -4,9 +4,9 @@ var addthis_config = {
 };
 
 var addthis_share = {
-  url: "http://mediamap.tv",
-  title: "MediaMap: The World's Videos through a Map"
+  url: "http://localhost:3000",
+  title: "MapTube: The World's Videos through a Map",
   templates: {
-    twitter: "Explore the world's videos with a map. {{lurl}} #mediamap"
+    twitter: "Explore the world's videos with a map. {{url}} #maptube"
   }
 };
