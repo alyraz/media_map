@@ -37,7 +37,7 @@ var MapController = {
       container: $('#world-map'),
       regionsSelectable: true,
       regionsSelectableOne: true, // allows only one selectable region
-      backgroundColor: "#44bbcc",
+      backgroundColor: "$ocean-blue",
 
       regionStyle: {
         initial: {
@@ -59,7 +59,9 @@ var MapController = {
       },
 
       onRegionLabelShow: function(event, label, code){
-        if(!MapController.checkIfSelectable(code))
+        if(!MapController.checkIfSelectable(code)){
+          event.preventDefault();
+        };
       },
 
       onRegionOver: function(event, code){
