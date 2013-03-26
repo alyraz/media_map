@@ -1,13 +1,8 @@
-.video-carousel {
-}
-
 .top-items {
   overflow-y: scroll;
   background-color: #eee;
   border-radius: 1em;
   padding: 10px;
-  width: 240px;
-  margin: 15px;
   height: 200px;
   ul {
     margin: 0;
@@ -18,7 +13,7 @@
       clear: both;
       white-space: normal;
       vertical-align: top;
-      width: 110px;
+      width: 100px;
       padding: 5px;
       list-style: none;
       display: inline-block;
