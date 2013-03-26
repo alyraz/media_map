@@ -1,0 +1,51 @@
+.styled-select select {
+   background: transparent;
+   width: 220px;
+   padding: 5px;
+   /*padding-left: 32px;*/
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   cursor: hand;
+   cursor: pointer;
+   }
+.styled-select {
+   width: 220px;
+   height: 34px;
+   overflow: hidden;
+   background: url(/assets/down_arrow.png) no-repeat right;
+   /*border: 1px solid #ccc;*/
+   }
+
+select {
+  color: #000;
+  color: rgba(0,0,0,0);
+  text-shadow: 0 0 0 #000;
+}
+
+.sort {
+  color: red;
+}
+select.sort{
+  font-size: 24px;
+}
+.category {
+  color: blue;
+}
+select.category{
+  font-size: 22px;
+}
+.time {
+  color: yellow;
+}
+select.time {
+  font-size: 20px;
+}
+
+form input:focus{
+  outline: none;
+  box-shadow: none;
+}
