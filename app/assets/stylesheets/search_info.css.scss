@@ -1,7 +1,6 @@
 .search-info {
   width: 260px;
   position: absolute;
-  top: 0;
   right: 0;
   bottom: 0;
   // padding: 5em 0;
@@ -15,4 +14,8 @@
 	padding: 5px;
 	background-color: blue;
 	border-radius: 5px;
+}
+
+#social-buttons {
+  padding: 1em 0;
 }
