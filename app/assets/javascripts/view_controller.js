@@ -17,7 +17,7 @@ var ViewController = {
   },
 
   createSrc: function(id){
-    return "http://www.youtube.com/embed/" +id+ "?autoplay=0&enablejsapi=1";
+    return "http://www.youtube.com/embed/" +id+ "?autoplay=1&enablejsapi=1";
   },
 
   createThumbnailList: function(video){
@@ -30,8 +30,17 @@ var ViewController = {
             " views</span></a></li>"].join('');
   },
 
-  setWindowHash: function(countryCode, sort, category, time){
-    window.location.hash = "/" +countryCode+ "/" +sort+ "/" +category+ "/" +time;
+  setWindowHash: function(){
+    var code = MapController.selectedCountry;
+    var sortBy = FormController.sortBy();
+    var category = FormController.category();
+    var timeFrame = FormController.timeFrame();
+
+    window.location.hash = "maps/" +
+                            code+ 
+                            "/" +sortBy+ 
+                            "/" +category+ 
+                            "/" +timeFrame;
   },
 
   render: function(videos){

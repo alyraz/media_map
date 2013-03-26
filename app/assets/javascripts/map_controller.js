@@ -27,14 +27,10 @@ var MapController = {
     return this.selectableRegions[Math.floor(Math.random() * this.selectableRegions.length)];
   },
 
-  displayMedia: function(code){
-    ViewController.clearMedia();
-    VideoController.retrieveVideos(code,
-                                   FormController.sortBySelection(),
-                                   FormController.timeSelection(),
-                                   FormController.categorySelection(),
-                                   VideoController.defaultVideoQuery);
-  },
+  // displayMedia: function(){
+  //   ViewController.clearMedia();
+  //   VideoController.retrieveVideos(4);
+  // },
 
   init: function(){
     this.map = new jvm.WorldMap({
@@ -42,65 +38,58 @@ var MapController = {
       regionsSelectable: true,
       regionsSelectableOne: true, // allows only one selectable region
       backgroundColor: "#44bbcc",
-      selectedRegions: [MapController.randomRegion()],
+
+      //!!!!!!!!!!!! only set if there isn't already an incoming URL
+      // selectedRegions: [MapController.randomRegion()],
+      
       regionStyle: {
         initial: {
           fill: "#F4F3F0",
           stroke: 'none'
         },
         hover: {
-          "fill-opacity": 0.65
+          "fill-opacity": 0.55
         },
         selected: {
           fill: '#3E57BB'
         }
       },
+
       series: {
         regions: [{
           values: this.createValuesMap(this.selectableRegions)
         }]
       },
 
-
-      // countryCode = MapController.selectedCountry;
-      // sort = FormController.sortBySelection();
-      // category = FormController.categorySelection();
-      // time = FormController.timeSelection();
-      // MapController.selectedCountry = code;
-      // ViewController.setWindowHash(countryCode, sort, category, time)
-
-      // turn off labels for unsupported countries
       onRegionLabelShow: function(event, label, code){
-        if(!MapController.checkIfSelectable(code))
+        if(!MapController.checkIfSelectable(code))  //supress labels for unsupported countries
           event.preventDefault();
       },
 
-      // turn off hover state for unsupported countries
       onRegionOver: function(event, code){
-        if(!MapController.checkIfSelectable(code))
+        if(!MapController.checkIfSelectable(code)) //supress hover for unsupported countries
           event.preventDefault();
       },
 
+      // moving functality of selected into click and turning off selecte to
+      // get bring back to life working 
       onRegionClick: function(e, code){
         if(!MapController.checkIfSelectable(code))
           e.preventDefault();
-      },
+          MapController.selectedCountry = code;
+          ViewController.setWindowHash();
+          ViewController.clearMedia();
+          VideoController.retrieveVideos(4);
+      }, 
 
-      onRegionSelected: function(e, code, isSelected, selectedRegions){
-        // Note: This function is called twice:
-        // 1) once when a region is *selected*; and
-        // 2) once when a region is *deselected*.
-        if(isSelected){
-          MapController.selectedCountry = code;
-          countryCode = MapController.selectedCountry;
-          sort = FormController.sortBySelection();
-          category = FormController.categorySelection();
-          time = FormController.timeSelection();
-          MapController.selectedCountry = code;
-          ViewController.setWindowHash(countryCode, sort, category, time)
-          MapController.displayMedia(code);
-        }
-      }
+      // onRegionSelected: function(e, code, isSelected, selectedRegions){
+      //   if(isSelected){
+      //     MapController.selectedCountry = code;
+      //     ViewController.setWindowHash();
+      //     ViewController.clearMedia();
+      //     VideoController.retrieveVideos(4);
+      //   }
+      // }
     });
   }
 };

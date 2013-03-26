@@ -5,26 +5,20 @@ var FormController = {
 
   sendSelection: function(){
     $('form').change(function(){
-      countryCode = MapController.selectedCountry;
-      sort = FormController.sortBySelection();
-      category = FormController.categorySelection();
-      time = FormController.timeSelection();
-      ViewController.setWindowHash(countryCode, sort, category, time)
+      ViewController.setWindowHash();
     });
   },
   
-  sortBySelection: function(){
+  sortBy: function(){
     return $('.sort').find('option:selected').val();
   },
 
-  timeSelection: function(){
-    return $('.time').find('option:selected').val();
-  },
-
-  categorySelection: function(){
+  category: function(){
     return $('.category').find('option:selected').val();
   },
 
-  
+  timeFrame: function(){
+    return $('.time').find('option:selected').val();
+  }, 
 };
 
