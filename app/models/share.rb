@@ -5,6 +5,11 @@ class Share < ActiveRecord::Base
 
   before_save :generate_url
 
+  validates :country, :presence => true
+  validates :time, :presence => true
+  validates :sort_type, :presence => true
+  validates :category, :presence => true
+
   HASH = Digest::MD5
   private
 
