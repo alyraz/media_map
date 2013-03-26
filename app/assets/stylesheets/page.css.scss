@@ -1,5 +1,32 @@
 $ocean-blue: #a5bfdd;
+$base-page-width: 1024px;
+$aside-box-width: 260px;
 
 body {
   background-color: $ocean-blue;
+  padding: 1em 0;
+}
+
+#logo {
+  float: left;
+}
+
+#page {
+  width: $base-page-width;
+  margin: 0 auto;
+}
+
+section {
+  float: left;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+aside {
+  float: left;
+  width: $aside-box-width;
+}
+
+footer {
+  clear: both;
 }

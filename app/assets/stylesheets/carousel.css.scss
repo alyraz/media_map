@@ -1,17 +1,14 @@
 .video-carousel {
-  clear: both;
-  position: relative;
 }
 
 .top-items {
-  overflow-x: scroll;
+  overflow-y: scroll;
   background-color: #eee;
   border-radius: 1em;
   padding: 10px;
-  white-space: nowrap;
-  width: 90%;
-  margin: auto;
-  height: 100px;
+  width: 240px;
+  margin: 15px;
+  height: 200px;
   ul {
     margin: 0;
     padding: 5px 0 0 0;
@@ -21,8 +18,8 @@
       clear: both;
       white-space: normal;
       vertical-align: top;
-      width: 300px;
-      padding: 5px 10px 5px 10px;
+      width: 110px;
+      padding: 5px;
       list-style: none;
       display: inline-block;
       a {
@@ -32,32 +29,49 @@
           float: left;
         }
         span {
-          display: block;
-          font-size: 12px;
-          padding: 5px 0 5px 130px;
+          display: none;
+          padding: 5px 0 5px 5px;
         }
         span.thumbnail-title {
           padding-top: 5px;
-          font-weight: 700;
+          font-size: 12px;
+        }
+        span.view-count {
+          font-size: 10px;
         }
       }
     }
     li:hover {
-      background-color: #ccc;
+      background-color: #000;
       border-radius: 5px;
+      height: 80px;
       a {
-        text-decoration: underline;
+        color: #ccc;
+        img {
+          display: none;
+        }
+        span {
+          display: block;
+        }
+        span.thumbnail-title {
+          padding-top: 5px;
+          color: #fff;
+        }
       }
     }
     li.fetch-videos {
-      width: 15px;
-      font-size: 50px;
+      width: 220px;
+      font-size: 1em;
+      height: 15px;
       a {
-        line-height: 90px;
+        line-height: 15px;
+        padding-left: 70px;
       }
     }
     li.fetch-videos:hover {
+      background-color: #ccc;
       a {
+        color: black;
         text-decoration: none;
       }
     }
