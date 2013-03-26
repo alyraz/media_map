@@ -1,11 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
-$ocean-blue: #a5bfdd;
+$ocean-blue: #8fa6bf;
+$video-player-width: 570px;
 
 .map {
-	position: relative;
-  width: 50%;
-  min-width: 570px;
-  height: 50%;
-  left: 200px;
-  padding: 10px 0;
+  width: $video-player-width;
 }
