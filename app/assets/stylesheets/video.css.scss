@@ -1,25 +1,15 @@
 $iframe-width: 550px;
-
-.focus {
-  position: relative;
-  width: 50%;
-  mind-width: 570px;
-  height: 355px;
-  height: 49%;
-  left: 200px;
-}
+$video-player-width: 570px;
+$disabled-country-color: #f6f5f2;
 
 .video-container {
-	background-color: #eee;
+	background-color: $disabled-country-color;
   border-radius: 1em;
-  width: 570px;
-  height: 355px;
-  margin: 0 auto;
-  padding: 0;
+  width: $video-player-width;
+  padding: 0.5em 0;
 }
 
 .selected-item {
-  padding: 10px 0;
   width: $iframe-width;
   margin: auto;
   iframe {
