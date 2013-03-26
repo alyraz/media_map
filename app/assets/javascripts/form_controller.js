@@ -13,12 +13,7 @@ var FormController = {
       VideoController.retrieveVideos(countryCode, sort, time, category, num);
     });
   },
-
-
-  // determineActiveSelection: function(){
-  //   return $('form').find('option:selected').val();
-  // },
-
+  
   sortBySelection: function(){
     return $('.sort').find('option:selected').val();
   },
