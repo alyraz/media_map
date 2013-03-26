@@ -3,10 +3,10 @@ var ShareController = {
     $('#share-button').on('click', function(event){
       event.preventDefault();
       console.log("inside here");
-      var category = FormController.categorySelection();
-      var country = MapController.selectedCountry;
-      var time = FormController.timeSelection();
-      var sort_type = FormController.sortBySelection();
+      var category = FormController.category();
+      var country = MapController.selectedCountry;//map.selectedRegions;
+      var time = FormController.timeFrame();
+      var sort_type = FormController.sortBy();
 
       shareData = {
         category: category,

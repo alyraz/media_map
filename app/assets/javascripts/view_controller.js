@@ -17,7 +17,7 @@ var ViewController = {
   },
 
   createSrc: function(id){
-    return "http://www.youtube.com/embed/" +id+ "?autoplay=0&enablejsapi=1";
+    return "http://www.youtube.com/embed/" +id+ "?autoplay=1&enablejsapi=1";
   },
 
   createThumbnailList: function(video){
@@ -30,10 +30,17 @@ var ViewController = {
             " views</span></a></li>"].join('');
   },
 
+  setWindowHash: function(){
+    var code = MapController.selectedCountry;//map.selectedRegions;
+    var sortBy = FormController.sortBy();
+    var category = FormController.category();
+    var timeFrame = FormController.timeFrame();
 
-  noDataMessage: function(code){
-    return ["<h4> We're sorry but the YouTube API does not support",
-            "queries for this country. Please try a different one!</h4>"].join('');
+    window.location.hash = "maps/" +
+                            code+ 
+                            "/" +sortBy+ 
+                            "/" +category+ 
+                            "/" +timeFrame;
   },
 
   render: function(videos){

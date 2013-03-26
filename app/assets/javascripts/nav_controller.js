@@ -1,21 +1,32 @@
 var NavController = {
-	init: function(){
-		this.enableBack();
-	},
+  init: function(){
+    this.preparePage();
+    $(window).on('hashchange', function(){
+      NavController.preparePage();    
+    });
+  },
 
-	enableBack: function(){
-		$('.prev').on('click', function(e){
-			e.preventDefault();
-			var index = $.inArray(MapController.selectedCountry, MapController.visitedCountries);
-			if ( index !== -1 && index !== 0 ) {
-				countryCode = MapController.visitedCountries[index-1];
-				time = FormController.timeSelection();
-				sort = FormController.sortBySelection();
-				category = FormController.categorySelection();
-				num = VideoController.defaultVideoQuery;
-				MapController.resetSelectedRegion(countryCode);
-				VideoController.retrieveVideos(countryCode, sort, time, category, num);
-			}
-		});
-	}
-};
+  preparePage: function(){
+
+    var windowHash = window.location.href.split("/");
+    
+    if (windowHash[4]) {
+      MapController.selectedCountry = windowHash[4];
+    } else {
+      MapController.selectedCountry = MapController.assignRegion();
+      ViewController.setWindowHash();
+    }
+    
+    MapController.resetSelectedRegion();
+
+    var sort        = windowHash[5];
+    var category    = windowHash[6];
+    var timeFrame   = windowHash[7];
+
+    $(".sort").val(sort);
+    $(".category").val(category);
+    $(".time").val(timeFrame);
+
+    VideoController.retrieveVideos(VideoController.defaultVideoQuery);
+  }
+}
