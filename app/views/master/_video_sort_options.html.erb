@@ -1,29 +1,31 @@
 <%= form_tag do %>
   <div>
-    <span>You are watching the </span>
-    <%= select_tag( :sort,
-                    options_for_select([["most popular", "most_popular"],
-                                        ["most discussed", "most_discussed"],
-                                        ["most responded", "most_responded"],
-                                        ["most subscribed", "most_subscribed"],
-                                        ["top rated", "top_rated"],
-                                        ["top favorited", "top_favorites"],]),
-                    { :class => "sort" }) %>
-    <%= select_tag( :category,
-                    options_for_select([["of all", ""],
-                                        ["music", "_Music"],
-                                        ["news", "_News"],
-                                        ["entertainment", "_Entertainment"],
-                                        ["sport","_Sports"],
-                                        ["movie", "_Movies"]]),
-                    { :class => "category" }) %>
-    <span> videos from </span><br />
-    <%= select_tag( :time, 
-                    options_for_select([["today", "today"],
-                                        ["this week", "this_week"],
-                                        ["this month", "this_month"],
-                                        ["all time", "all_time"]]),
-                    { :class => "time" }) %><br />
-    <span> for Uganda.</span>
+    <span>
+        You are watching the
+      <%= select_tag( :sort,
+                      options_for_select([["most popular", "most_popular"],
+                                          ["most discussed", "most_discussed"],
+                                          ["most responded", "most_responded"],
+                                          ["most subscribed", "most_subscribed"],
+                                          ["top rated", "top_rated"],
+                                          ["top favorited", "top_favorites"],]),
+                      { :class => "sort" }) %>
+      <%= select_tag( :category,
+                      options_for_select([["of all", ""],
+                                          ["music", "_Music"],
+                                          ["news", "_News"],
+                                          ["entertainment", "_Entertainment"],
+                                          ["sport","_Sports"],
+                                          ["movie", "_Movies"]]),
+                      { :class => "category" }) %>
+      videos from
+      <%= select_tag( :time, 
+                      options_for_select([["today", "today"],
+                                          ["this week", "this_week"],
+                                          ["this month", "this_month"],
+                                          ["all time", "all_time"]]),
+                      { :class => "time" }) %>
+      for Uganda.
+    </span>
   </div>
 <% end %>

@@ -1,16 +1,18 @@
 $iframe-width: 550px;
 
 .focus {
-  width: 570px;
+  position: relative;
+  width: 50%;
+  mind-width: 570px;
   height: 355px;
   height: 49%;
-  margin: 0 auto;
+  left: 200px;
 }
 
 .video-container {
 	background-color: #eee;
   border-radius: 1em;
-  width: 100%;
+  width: 570px;
   height: 355px;
   margin: 0 auto;
   padding: 0;

@@ -2,8 +2,10 @@
 $ocean-blue: #a5bfdd;
 
 .map {
-  width: 720px;
+	position: relative;
+  width: 50%;
+  min-width: 570px;
   height: 50%;
-  margin: auto;
+  left: 200px;
   padding: 10px 0;
 }
