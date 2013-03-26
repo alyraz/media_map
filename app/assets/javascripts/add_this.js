@@ -4,9 +4,9 @@ var addthis_config = {
 };
 
 var addthis_share = {
-  url: "http://localhost:3000",
+  url: "http://www.maptu.be",
   title: "MapTube: The World's Videos through a Map",
   templates: {
-    twitter: "Explore the world's videos with a map. {{url}} #maptube"
+    twitter: "Explore the world's videos with a map. {{lurl}} #maptube"
   }
 };
