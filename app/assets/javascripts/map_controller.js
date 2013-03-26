@@ -13,7 +13,7 @@ var MapController = {
   createValuesMap: function(selectableRegions){
     var values = {};
       for(var i = 0, length = selectableRegions.length; i < length; i++)
-        values[selectableRegions[i]] = '#CADFAA';
+        values[selectableRegions[i]] = '#90DA94';
       return values;
   },
 
@@ -41,7 +41,7 @@ var MapController = {
       container: $('#world-map'),
       regionsSelectable: true,
       regionsSelectableOne: true, // allows only one selectable region
-      backgroundColor: "#a5bfdd",
+      backgroundColor: "#44bbcc",
       selectedRegions: [MapController.randomRegion()],
       regionStyle: {
         initial: {
@@ -52,7 +52,7 @@ var MapController = {
           "fill-opacity": 0.65
         },
         selected: {
-          fill: 'green'
+          fill: '#3E57BB'
         }
       },
       series: {
@@ -60,6 +60,14 @@ var MapController = {
           values: this.createValuesMap(this.selectableRegions)
         }]
       },
+
+
+      // countryCode = MapController.selectedCountry;
+      // sort = FormController.sortBySelection();
+      // category = FormController.categorySelection();
+      // time = FormController.timeSelection();
+      // MapController.selectedCountry = code;
+      // ViewController.setWindowHash(countryCode, sort, category, time)
 
       // turn off labels for unsupported countries
       onRegionLabelShow: function(event, label, code){
@@ -84,6 +92,12 @@ var MapController = {
         // 2) once when a region is *deselected*.
         if(isSelected){
           MapController.selectedCountry = code;
+          countryCode = MapController.selectedCountry;
+          sort = FormController.sortBySelection();
+          category = FormController.categorySelection();
+          time = FormController.timeSelection();
+          MapController.selectedCountry = code;
+          ViewController.setWindowHash(countryCode, sort, category, time)
           MapController.displayMedia(code);
         }
       }

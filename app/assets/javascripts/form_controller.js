@@ -5,12 +5,11 @@ var FormController = {
 
   sendSelection: function(){
     $('form').change(function(){
-      time = FormController.timeSelection();
-      sort = FormController.sortBySelection();
       countryCode = MapController.selectedCountry;
+      sort = FormController.sortBySelection();
       category = FormController.categorySelection();
-      num = VideoController.defaultVideoQuery;
-      VideoController.retrieveVideos(countryCode, sort, time, category, num);
+      time = FormController.timeSelection();
+      ViewController.setWindowHash(countryCode, sort, category, time)
     });
   },
   
@@ -24,5 +23,8 @@ var FormController = {
 
   categorySelection: function(){
     return $('.category').find('option:selected').val();
-  }
+  },
+
+  
 };
+
