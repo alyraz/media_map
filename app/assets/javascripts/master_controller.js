@@ -4,4 +4,5 @@ $(function(){
   MapController.init();
   ViewController.init();
   FormController.init();
+  NavController.init();
 });

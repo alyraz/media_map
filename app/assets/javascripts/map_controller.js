@@ -36,7 +36,13 @@ var MapController = {
                                    VideoController.defaultVideoQuery);
   },
 
+  resetSelectedRegion: function(countryCode){
+    this.map.clearSelectedRegions();
+    this.map.setSelectedRegions(countryCode);
+  },
+
   init: function(){
+    this.visitedCountries = [];
     this.map = new jvm.WorldMap({
       container: $('#world-map'),
       regionsSelectable: true,
@@ -84,6 +90,7 @@ var MapController = {
         // 2) once when a region is *deselected*.
         if(isSelected){
           MapController.selectedCountry = code;
+          MapController.visitedCountries.push(code);
           MapController.displayMedia(code);
         }
       }

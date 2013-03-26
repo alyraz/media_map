@@ -25,7 +25,7 @@ var ViewController = {
             "<img src='"+video.thumbnail.sqDefault+"' heigh='80' width='107'>",
             "<span class='thumbnail-title'>",
             video.title,
-            "</span><span>",
+            "</span><span class='view-count'>",
             video.viewCount,
             " views</span></a></li>"].join('');
   },

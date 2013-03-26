@@ -1,13 +1,13 @@
-<div class="logo rotate">
-  <h1>MediaMap</h1>
+<div id="logo">
+  <%= image_tag("logo.png") %>
 </div>
 
-<div class="map">
-  <div id="world-map">
+<section>
+  <div class="map">
+    <div id="world-map">
+    </div>
   </div>
-</div>
 
-<div class="focus">
   <div class="video-container">
     <div class="selected-item">
       <iframe id='ytplayer' type='text/html' 
@@ -16,25 +16,31 @@
       </iframe>
     </div>
   </div>
-</div>
+</section>
 
-<div class="search-info">
-  <div>
-    <%= render "video_sort_options" %>
+<aside>
+  <div class="search-info">
+    <div>
+      <%= render "video_sort_options" %>
+    </div>
+    <div class="share">
+      <form method="POST" action="#">
+        <input id="share-button" type="submit" value="Share">
+      </form>
+    </div>
   </div>
-  <div class="share">
-    <form method="POST" action="#">
-      <input id="share-button" type="submit" value="Share">
-    </form>
-  </div>
-</div>
 
-<div class="video-carousel">
-  <div class="top-items">
-    <ul class="video-thumbnails"> 
-    </ul>
-    <ul>
-      <li class="fetch-videos"><%= link_to "&rang;".html_safe, "#" %></li>
-    </ul>
+  <div class="video-carousel">
+    <div class="top-items">
+      <ul class="video-thumbnails"> 
+      </ul>
+      <ul>
+        <li class="fetch-videos"><%= link_to "more videos" , "#" %></li>
+      </ul>
+    </div>
   </div>
-</div>
+</aside>
+
+<footer>
+  <p>Made by Alyssa, Eno, Mary, and Ryan.</p>
+</footer>
