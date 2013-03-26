@@ -5,7 +5,7 @@ var VideoController = {
   init: function(){
     this.defaultVideoQuery = 4;
     this.additionalVideos = 4;
-    this.retrieveVideos(4);
+    //this.retrieveVideos(4);
     this.getMoreVideos();
   },
 
@@ -36,16 +36,11 @@ var VideoController = {
   },
 
   createUrl: function(num){
-    var code = MapController.selectedCountry;
-    var sortBy = FormController.sortBy();
-    var category = FormController.category();
-    var timeFrame = FormController.timeFrame();
-    var num = num
-
     return "http://gdata.youtube.com/feeds/api/standardfeeds/" +
-            code+ 
-            "/" +sortBy+category+
-            "?v=2&time=" +timeFrame+
+            MapController.selectedCountry+//map.selectedRegions+ 
+            "/" +FormController.sortBy()+
+            FormController.category()+
+            "?v=2&time=" +FormController.timeFrame()+
             "&max-results=" +num+ "&alt=jsonc";
   }
 };

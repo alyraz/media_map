@@ -31,7 +31,7 @@ var ViewController = {
   },
 
   setWindowHash: function(){
-    var code = MapController.selectedCountry;
+    var code = MapController.selectedCountry;//map.selectedRegions;
     var sortBy = FormController.sortBy();
     var category = FormController.category();
     var timeFrame = FormController.timeFrame();

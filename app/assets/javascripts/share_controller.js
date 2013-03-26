@@ -4,7 +4,7 @@ var ShareController = {
       event.preventDefault();
       console.log("inside here");
       var category = FormController.category();
-      var country = MapController.selectedCountry;
+      var country = MapController.selectedCountry;//map.selectedRegions;
       var time = FormController.timeFrame();
       var sort_type = FormController.sortBy();
 

@@ -23,7 +23,13 @@ var MapController = {
     return false;
   },
 
-  randomRegion: function(){
+  resetSelectedRegion: function(){
+    console.log(MapController.selectedCountry);
+    this.map.clearSelectedRegions();
+    this.map.setSelectedRegions(MapController.selectedCountry);
+  },
+
+  assignRegion: function(){
     return this.selectableRegions[Math.floor(Math.random() * this.selectableRegions.length)];
   },
 
@@ -33,6 +39,7 @@ var MapController = {
   // },
 
   init: function(){
+    console.log('initialized');
     this.map = new jvm.WorldMap({
       container: $('#world-map'),
       regionsSelectable: true,
@@ -40,7 +47,7 @@ var MapController = {
       backgroundColor: "#44bbcc",
 
       //!!!!!!!!!!!! only set if there isn't already an incoming URL
-      // selectedRegions: [MapController.randomRegion()],
+      // selectedRegions: [MapController.assignRegion()],
       
       regionStyle: {
         initial: {
@@ -77,19 +84,20 @@ var MapController = {
         if(!MapController.checkIfSelectable(code))
           e.preventDefault();
           MapController.selectedCountry = code;
-          ViewController.setWindowHash();
-          ViewController.clearMedia();
-          VideoController.retrieveVideos(4);
+          // ViewController.setWindowHash();
+          // ViewController.clearMedia();
+          // VideoController.retrieveVideos(4);
       }, 
 
-      // onRegionSelected: function(e, code, isSelected, selectedRegions){
-      //   if(isSelected){
-      //     MapController.selectedCountry = code;
-      //     ViewController.setWindowHash();
-      //     ViewController.clearMedia();
-      //     VideoController.retrieveVideos(4);
-      //   }
-      // }
+      onRegionSelected: function(e, code, isSelected, selectedRegions){
+        if(isSelected){
+          this.selectedRegions = code;
+          // MapController.selectedCountry = code;
+          ViewController.setWindowHash();
+          ViewController.clearMedia();
+          //VideoController.retrieveVideos(4);
+        }
+      }
     });
   }
 };
