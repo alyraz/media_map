@@ -13,7 +13,9 @@
                     options_for_select([["of all", ""],
                                         ["music", "_Music"],
                                         ["news", "_News"],
-                                        ["entertainment", "_Entertainment"]]),
+                                        ["entertainment", "_Entertainment"],
+                                        ["sport","_Sports"],
+                                        ["movie", "_Movies"]]),
                     { :class => "category" }) %>
     <span> videos from </span><br />
     <%= select_tag( :time, 

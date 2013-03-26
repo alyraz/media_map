@@ -4,6 +4,15 @@
   top: 0;
   right: 0;
   bottom: 0;
-  padding: 5em 0;
+  // padding: 5em 0;
   font-size: 2em;
+}
+
+.prev {
+	text-decoration: none;
+	font-size: 0.5em;
+	color: black;
+	padding: 5px;
+	background-color: blue;
+	border-radius: 5px;
 }
