@@ -64,7 +64,7 @@ var MapController = {
       onRegionLabelShow: function(event, label, code){
         if(!MapController.checkIfSelectable(code)){
           event.preventDefault();
-        };
+        }
       },
 
       onRegionOver: function(event, code){
@@ -85,9 +85,10 @@ var MapController = {
           this.selectedRegions = code;
           $('.country').val(code);
           console.log("setting hash from MapController.map.onRegionSelected");
-          ViewController.setWindowHash(); // setting window hash, 
+          ViewController.setWindowHash(); // setting window hash,
           MapController.map.setFocus(code);
           ViewController.clearMedia();
+          ViewController.updateFlag(code);
         }
       }
     });
