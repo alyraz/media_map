@@ -64,5 +64,10 @@ var ViewController = {
     $(".category").val(category);
     $(".time").val(timeFrame);
     $(".country").val(MapController.selectedCountry);
+  },
+
+  updateFlag: function(code){
+    var image = "assets/48-pixel-flags/"+code.toLowerCase()+".png";
+    $('.flag').html("<img src='"+image+"'>");
   }
 };

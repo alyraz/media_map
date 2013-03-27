@@ -64,7 +64,7 @@ var MapController = {
       onRegionLabelShow: function(event, label, code){
         if(!MapController.checkIfSelectable(code)){
           event.preventDefault();
-        };
+        }
       },
 
       onRegionOver: function(event, code){
@@ -88,6 +88,7 @@ var MapController = {
           NavController.setWindowHash(); // setting window hash, 
           MapController.map.setFocus(code);
           ViewController.clearMedia();
+          ViewController.updateFlag(code);
         }
       }
     });
