@@ -30,6 +30,23 @@ var ViewController = {
             " views</span></a></li>"].join('');
   },
 
+  setWindowHash: function(){
+    var code      = MapController.selectedCountry;
+    var sortBy    = FormController.sortBy();
+    var category  = FormController.category();
+    var timeFrame = FormController.timeFrame();
+    var date      = this.formattedDate();
+
+    var hash = "maps/" + code+ "/" +sortBy+ "/" +category+ "/" +timeFrame+ "/" + date;
+    location.hash = hash;
+  },
+
+  formattedDate: function(){
+    today = new Date();
+    date = (today.getMonth()+1) + "-" + today.getDate() + "-" + today.getFullYear();
+    return date;
+  },
+
   render: function(videos){
     this.clearMedia();
     this.populateThumbnails(videos);
