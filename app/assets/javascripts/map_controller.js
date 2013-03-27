@@ -31,6 +31,10 @@ var MapController = {
     return this.selectableRegions[Math.floor(Math.random() * this.selectableRegions.length)];
   },
 
+  assignRandomRegion: function(){
+    MapController.selectedCountry = MapController.assignRegion();
+  },
+
   init: function(){
     this.map = new jvm.WorldMap({
       container: $('#world-map'),
@@ -77,9 +81,11 @@ var MapController = {
 
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         if(isSelected){
+          console.log("selecting " + code);
           this.selectedRegions = code;
           $('.country').val(code);
-          ViewController.setWindowHash();
+          console.log("setting hash from MapController.map.onRegionSelected");
+          ViewController.setWindowHash(); // setting window hash, 
           MapController.map.setFocus(code);
           ViewController.clearMedia();
         }

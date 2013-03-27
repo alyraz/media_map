@@ -6,7 +6,7 @@ var FormController = {
   sendSelection: function(){
     $('form').change(function(){
       MapController.selectedCountry = FormController.country();
-      ViewController.setWindowHash();
+      ViewController.setWindowHash(); // setting window hash
     });
   },
   
