@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>mediamap</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
-</head>
-<body>
-  <div id="page">
-    <%= yield %>
-  </div>
-</body>
+  <head>
+    <title>mediamap</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
+  </head>
+  <body>
+    <div id="page">
+      <%= yield %>
+    </div>
+    <footer>
+      <span>Made with wonder in San Francisco by Alyssa, Eno, Mary, and Ryan.</span>
+    </footer>
+  </body>
 </html>

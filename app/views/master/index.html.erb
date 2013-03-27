@@ -3,29 +3,41 @@
 </div>
 
 <section>
-  
   <div class="map">
-  <div><%= render "video_sort_options" %></div>
     <div id="world-map">
     </div>
   </div>
 
-  <div class="video-container">
-    <div class="selected-item">
-      <iframe id='ytplayer' type='text/html' 
-              width='550' height='335' 
-              src='' frameborder='0'>
-      </iframe>
+  <div class='media-center'>
+    <%= render "video_sort_options" %>
+      <div class="video-container">
+        <div class="selected-item">
+          <iframe id='ytplayer' type='text/html' 
+                  width='550' height='335' 
+                  src='' frameborder='0'>
+          </iframe>
+        </div>
+        <div class="video-carousel">
+        <div class="top-items">
+          <ul class="video-thumbnails"> 
+          </ul>
+          <ul>
+            <li class="fetch-videos"><%= link_to "more videos" , "#" %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+
+
 </section>
 
 <aside>
   <div class="search-info">
     <div class="share">
-      <form method="POST" action="#">
+    <!--   <form method="POST" action="#">
         <input id="share-button" type="submit" value="Archive">
-      </form>
+      </form> -->
     </div>
 
     <div>
@@ -33,17 +45,6 @@
     </div>
   </div>
 
-  <div class="video-carousel">
-    <div class="top-items">
-      <ul class="video-thumbnails"> 
-      </ul>
-      <ul>
-        <li class="fetch-videos"><%= link_to "more videos" , "#" %></li>
-      </ul>
-    </div>
-  </div>
 </aside>
 
-<footer>
-  <p>Made with wonder in San Francisco by Alyssa, Eno, Mary, and Ryan.</p>
-</footer>
+
