@@ -59,9 +59,12 @@ form input:focus {
   z-index: 1;
   font-size: 14px;
   color: white;
-  width: 780px;
+  width: 810px;
 }
 
+.flag {
+  margin-top: -15px;
+}
 
 
 
