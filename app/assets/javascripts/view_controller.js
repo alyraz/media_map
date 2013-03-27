@@ -45,13 +45,17 @@ var ViewController = {
 
   render: function(videos){
     this.clearMedia();
+    this.populateThumbnails(videos);
+    var src = this.createSrc(videos[0].id);
+    $('#ytplayer').attr("src", src).show();
+  },
+
+  populateThumbnails: function(videos){
     for(var i = 0; i < videos.length; i++){
       var thumbnail = videos[i].thumbnail.sqDefault;
       var id = videos[i].id;
       $('.video-thumbnails').append(ViewController.createThumbnailList(videos[i]));
     }
-    var src = this.createSrc(videos[0].id);
-    $('#ytplayer').attr("src", src).show();
   },
 
   addCommas: function(views){
