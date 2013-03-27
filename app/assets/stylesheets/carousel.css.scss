@@ -13,8 +13,9 @@
       clear: both;
       white-space: normal;
       vertical-align: top;
-      width: 100px;
-      padding: 5px;
+      height: 80px;
+      width: 107px;
+      margin: 5px;
       list-style: none;
       display: inline-block;
       a {
@@ -38,8 +39,6 @@
     }
     li:hover {
       background-color: #000;
-      border-radius: 5px;
-      height: 80px;
       a {
         color: #ccc;
         img {
@@ -50,14 +49,16 @@
         }
         span.thumbnail-title {
           padding-top: 5px;
+          height: 35px;
           color: #fff;
+          overflow: hidden;
         }
       }
     }
     li.fetch-videos {
       width: 220px;
       font-size: 1em;
-      height: 15px;
+      height: 20px;
       a {
         line-height: 15px;
         padding-left: 70px;

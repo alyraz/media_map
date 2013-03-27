@@ -22,7 +22,7 @@ var ViewController = {
 
   createThumbnailList: function(video){
     return ["<li class='tile' data-id='"+video.id+"'><a href='#' class='tile-link'>",
-            "<img src='"+video.thumbnail.sqDefault+"' heigh='80' width='107'>",
+            "<img src='"+video.thumbnail.sqDefault+"' height='80' width='107'>",
             "<span class='thumbnail-title'>",
             video.title,
             "</span><span class='view-count'>",
@@ -37,9 +37,9 @@ var ViewController = {
     var timeFrame = FormController.timeFrame();
 
     window.location.hash = "maps/" +
-                            code+ 
-                            "/" +sortBy+ 
-                            "/" +category+ 
+                            code+
+                            "/" +sortBy+
+                            "/" +category+
                             "/" +timeFrame;
   },
 
