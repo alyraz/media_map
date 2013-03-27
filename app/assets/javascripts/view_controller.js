@@ -81,14 +81,25 @@ var ViewController = {
   },
 
   enableTopItemClick: function() {
-    $('.show-videos').on('click', function(e){
+    $('.arrow').on('click', function(e){
       e.preventDefault();
-      ViewController.showThumbnails();
+      if ($(this).attr('class').indexOf('show-videos') !== -1) {
+        ViewController.showThumbnails();
+      } else {
+        ViewController.hideThumbnails();
+      }
     });
   },
 
   showThumbnails: function() {
+    $('.arrow').toggleClass("hidden");
     $('.top-items').css('width', '135px');
     $('.top-items ul').show();
+  },
+
+  hideThumbnails: function(){
+    $('.arrow').toggleClass("hidden");
+    $('.top-items').css('width', '15px');
+    $('.top-items ul').hide();
   }
 };
