@@ -35,7 +35,6 @@ var NavController = {
     else {
       MapController.assignRandomRegion();
     }
-
     this.setWindowHash();
   },
 
