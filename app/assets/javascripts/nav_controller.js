@@ -24,7 +24,7 @@ var NavController = {
       var timeFrame   = params[4];
       var date        = params[5];
       ViewController.updateFormSelection(sort, category, timeFrame);
-        // read client's location and UCT
+      // read client's location and UCT
       // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
         NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
       // }
@@ -67,14 +67,13 @@ var NavController = {
   },
 
   retrieveArchivedVideos: function(country, sort, category, timeFrame, date){
-    d = new Date();
     $.ajax({
       type: "POST",
       url: "/share",
       data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
     })
     .done(function( serverResponse ) {
-      console.log(serverResponse);
+      console.log("ready to render videos");
     });
   }
 };
