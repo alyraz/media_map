@@ -6,7 +6,7 @@ gem 'thin'
 
 # Background and rake tasks
 gem 'sidekiq'
-gem 'httparty'
+gem 'typhoeus'
 
 # JavaScript gems
 gem 'jquery-rails'
