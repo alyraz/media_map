@@ -2,13 +2,13 @@ var NavController = {
   init: function(){
     // set up listener on future url hash changes
     $(window).on('hashchange', function(){
-      NavController.handleHashChange();
+      NavController.updatePageFromHash();
     });
 
     this.preparePage();
   },
 
-  hashParameters: function() {
+  hashParameters: function(){
     return window.location.hash.split("/");
   },
 
@@ -16,8 +16,8 @@ var NavController = {
     // get parameters from hash
     var params = this.hashParameters();
 
-    // if we have parameters in hash, retrieve them and send to view
-    if (params.length > 1) {
+    // if we have parameters in hash, retrieve them and send to view for storing
+    if (params.length > 1){
       MapController.selectedCountry = params[1];
       var sort        = params[2];
       var category    = params[3];
@@ -33,17 +33,15 @@ var NavController = {
     // user has not made a selection; assign random country to view
     else {
       MapController.assignRandomRegion();
+      this.setWindowHash();
     }
 
-    console.log("setting hash from NavController.preparePage");
-    this.setWindowHash();
-
-    // update url to reflect current location
-    this.handleHashChange();
+    // update page based on hash change
+    this.updatePageFromHash();
   },
 
-  handleHashChange: function() {
-    console.log("change hash called");
+  updatePageFromHash: function(){
+    console.log("update page from hash called");
     var params = this.hashParameters();
     if (params[1]) {
       MapController.selectedCountry = params[1];
@@ -58,13 +56,15 @@ var NavController = {
   },
 
   setWindowHash: function(){
-    var code = MapController.selectedCountry;
-    var sortBy = FormController.sortBy();
-    var category = FormController.category();
+    // retrieve values of current selection
+    var code      = MapController.selectedCountry;
+    var sortType  = FormController.sortBy(); // TODO: sortBy is two functions
+    var category  = FormController.category();
     var timeFrame = FormController.timeFrame();
+    var urlHash = ["maps", code, sortType, category, timeFrame].join("/");
 
-    var hash = ["maps", code, sortBy, category, timeFrame].join("/");
-    location.hash = hash;
+    // update url with values of current selection
+    location.hash = urlHash;
   },
 
   retrieveArchivedVideos: function(country, sort, category, timeFrame, date){
