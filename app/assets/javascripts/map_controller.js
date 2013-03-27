@@ -32,7 +32,7 @@ var MapController = {
   },
 
   assignRandomRegion: function(){
-    MapController.selectedCountry = MapController.assignRegion();
+    this.selectedCountry = this.assignRegion();
   },
 
   init: function(){

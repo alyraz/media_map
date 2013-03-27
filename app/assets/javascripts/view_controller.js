@@ -59,6 +59,7 @@ var ViewController = {
     return views;
   },
 
+  // stores user selection in page
   updateFormSelection: function(sort, category, timeFrame) {
     $(".sort").val(sort);
     $(".category").val(category);
