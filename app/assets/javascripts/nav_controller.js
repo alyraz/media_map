@@ -1,11 +1,12 @@
 var NavController = {
   init: function(){
-    // set up listener on future url hash changes
+    // this is what happens on initial page load
+    this.preparePage();
+
+    // this is what happens any time the hash changes
     $(window).on('hashchange', function(){
       NavController.updatePageFromHash();
     });
-
-    this.preparePage();
   },
 
   hashParameters: function(){
@@ -24,12 +25,12 @@ var NavController = {
       var timeFrame   = params[4];
       var date        = params[5];
       ViewController.updateFormSelection(sort, category, timeFrame);
-
       // read client's location and UCT
       // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
-      //   NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
+      NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
+
       // }
-    } 
+    }
     // user has not made a selection; assign random country to view
     else {
       MapController.assignRandomRegion();
@@ -61,7 +62,8 @@ var NavController = {
     var sortType  = FormController.sortBy(); // TODO: sortBy is two functions
     var category  = FormController.category();
     var timeFrame = FormController.timeFrame();
-    var urlHash = ["maps", code, sortType, category, timeFrame].join("/");
+    var date      = ViewController.formattedDate();
+    var urlHash = ["maps", code, sortType, category, timeFrame, date].join("/");
 
     // update url with values of current selection
     location.hash = urlHash;
@@ -74,7 +76,7 @@ var NavController = {
       data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
     })
     .done(function( serverResponse ) {
-      console.log("ready to render videos");
+      console.log(serverResponse);
     });
   }
 };

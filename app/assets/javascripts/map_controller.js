@@ -71,7 +71,7 @@ var MapController = {
         if(!MapController.checkIfSelectable(code)) {
           event.preventDefault();
         }
-        this.css("cursor", "pointer");
+        //this.css("cursor", "pointer");
       },
 
       onRegionClick: function(e, code){
