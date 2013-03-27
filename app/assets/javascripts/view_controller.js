@@ -1,6 +1,7 @@
 var ViewController = {
 
   init: function(){
+    this.checkScroll();
     $('.video-thumbnails').on('click', 'li a', function(e){
       e.preventDefault();
       ViewController.updateVideo(this);
@@ -70,5 +71,11 @@ var ViewController = {
   updateFlag: function(code){
     var image = "assets/48-pixel-flags/"+code.toLowerCase()+".png";
     $('.flag').html("<img src='"+image+"'>");
+  },
+
+  checkScroll: function() {
+    if ( $('.top-items').scrollTop + $('.top-items').clientHeight == $('.top-items').scrollHeight ){
+      alert("the end!");
+    }
   }
 };
