@@ -7,6 +7,8 @@ gem 'httparty'
 gem 'whenever', :require => false
 gem "chosen-rails", "~> 0.9.12"
 
+gem 'sidekiq'
+
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
