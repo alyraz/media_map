@@ -14,6 +14,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda'
+  gem 'debugger'
 end
 
 group :assets do

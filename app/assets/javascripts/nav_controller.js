@@ -18,11 +18,15 @@ var NavController = {
       var sort        = location[2];
       var category    = location[3];
       var timeFrame   = location[4];
+      var date        = location[5];
       MapController.selectedCountry = location[1];
       $(".sort").val(sort);
       $(".category").val(category);
       $(".time").val(timeFrame);
-      // this.hashChange();
+      // read client's location and UCT
+      // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
+        NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
+      // }
     } else {
       MapController.selectedCountry = MapController.assignRegion();
     }
@@ -39,5 +43,16 @@ var NavController = {
     }
     MapController.resetSelectedRegion();
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
+  },
+
+  retrieveArchivedVideos: function(country, sort, category, timeFrame, date){
+    d = new Date();
+      $.ajax({
+        type: "POST",
+        url: "/share",
+        data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
+      }).done(function( serverResponse ) {
+        console.log(serverResponse);
+      });
   }
 };

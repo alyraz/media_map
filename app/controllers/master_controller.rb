@@ -6,19 +6,16 @@ class MasterController < ApplicationController
   def index
   end
 
-  # def time
-  #   puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-  #   puts params[:time]
-  #   render :json => {:time => params[:time]}.to_json
-  # end
-
   def share
-    share = Share.new(params[:shareData])
-    if share.save
-      save_videos(share, params[:videos])
-       render :json => {data: share.short_url}.to_json
+    if share = find_share(params)
+    sorted_videos = find_sorted_videos(share)
+      if sorted_videos.length > 0
+        render :json => {sorted_videos: sorted_videos}.to_json
+      else 
+        render :json => {error: "no entries found"}.to_json
+      end 
     else
-      render :json => {data: "failed"}.to_json
+      render :json => {error: "no share found"}.to_json
     end
   end
 
