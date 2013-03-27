@@ -36,11 +36,8 @@ var ViewController = {
     var category = FormController.category();
     var timeFrame = FormController.timeFrame();
 
-    window.location.hash = "maps/" +
-                            code+
-                            "/" +sortBy+
-                            "/" +category+
-                            "/" +timeFrame;
+    var hash = "maps/" + code+ "/" +sortBy+ "/" +category+ "/" +timeFrame;
+    location.hash = hash;
   },
 
   render: function(videos){

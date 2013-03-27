@@ -1,6 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
-$video-player-width: 570px;
+$video-player-width: 750px;
 
 .map {
   width: $video-player-width;
+  position: relative;
 }
+
+#world-map {
+  padding-top: 50px;
+}
+
+

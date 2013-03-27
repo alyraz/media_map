@@ -1,11 +1,13 @@
 var MapController = {
  
-  selectableRegions: ["AE", "AR", "AU", "BE", "BR", "CA", "CL", "CO", "CZ",
-                      "DE", "DZ", "EG", "ES", "FR", "GB", "GH", "GR", "HK",
-                      "HU", "ID", "IE", "IL", "IN", "IT", "JO", "JP", "KE",
-                      "KR", "MA", "MX", "MY", "NG", "NL", "NZ", "PE", "PH",
-                      "PL", "RU", "SA", "SE", "SG", "TN", "TR", "TW", "UG",
-                      "US", "YE", "ZA"],
+  selectableRegions: [
+    "AE", "AR", "AU", "BE", "BR", "CA", "CL", "CO", "CZ",
+    "DE", "DZ", "EG", "ES", "FR", "GB", "GH", "GR", "HK",
+    "HU", "ID", "IE", "IL", "IN", "IT", "JO", "JP", "KE",
+    "KR", "MA", "MX", "MY", "NG", "NL", "NZ", "PE", "PH",
+    "PL", "RU", "SA", "SE", "SG", "TN", "TR", "TW", "UG",
+    "US", "YE", "ZA"
+  ],
 
   createValuesMap: function(selectableRegions){
     var values = {};

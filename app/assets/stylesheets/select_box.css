@@ -2,8 +2,7 @@
    background: transparent;
    width: 220px;
    padding: 5px;
-   /*padding-left: 32px;*/
-   font-size: 16px;
+   font-size: 14px;
    line-height: 1;
    border: 0;
    border-radius: 0;
@@ -11,41 +10,68 @@
    -webkit-appearance: none;
    cursor: hand;
    cursor: pointer;
-   }
+
+}
+
 .styled-select {
-   width: 220px;
-   height: 34px;
-   overflow: hidden;
-   background: url(/assets/down_arrow.png) no-repeat right;
-   /*border: 1px solid #ccc;*/
-   }
+  width: 130px;
+  height: 34px;
+  overflow: hidden;
+  background: url(/assets/down_arrow.png) no-repeat right;
+  position: relative;
+  top: -10px;
+  background-color: rgba(20,20,20,0.8);
+  margin: 0 3px;
+  /*border: 1px solid #ccc;*/
+}
 
 select {
-  color: #000;
-  color: rgba(0,0,0,0);
+  color: white;
   text-shadow: 0 0 0 #000;
+  text-align: center;
 }
 
-.sort {
-  color: red;
+select.sort { 
 }
-select.sort{
-  font-size: 24px;
+
+select.category {
+ 
 }
-.category {
-  color: blue;
-}
-select.category{
-  font-size: 22px;
-}
-.time {
-  color: yellow;
-}
+
 select.time {
-  font-size: 20px;
 }
 
-form input:focus{
+form input:focus {
   outline: none;
   box-shadow: none;
 }
+
+.context-sentence li {
+  list-style: none;
+  position: relative;
+  float: left;
+}
+
+.context-sentence {
+  margin-top: 6px;
+  background: rgba(20,20,20,0.8);
+  position: absolute;
+  z-index: 1;
+  font-size: 14px;
+  color: white;
+  width: 700px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

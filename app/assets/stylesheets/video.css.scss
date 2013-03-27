@@ -1,18 +1,25 @@
 $iframe-width: 550px;
-$video-player-width: 570px;
+$video-player-width: 700px;
 $disabled-country-color: #f6f5f2;
 
 .video-container {
-	background-color: $disabled-country-color;
-  border-radius: 1em;
   width: $video-player-width;
-  padding: 0.5em 0;
+  position: relative;
+  padding-top: 60px;
 }
 
 .selected-item {
   width: $iframe-width;
-  margin: auto;
+  float: left;
   iframe {
     display: none;
   }
 }
+
+.media-center {
+  position: relative;
+  width: $video-player-width;
+  //background-color: rgba(20,20,20,0.9);
+}
+
+

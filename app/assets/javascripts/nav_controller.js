@@ -4,6 +4,8 @@ var NavController = {
     $(window).on('hashchange', function(){
       NavController.hashChange();
     });
+
+    $(window).trigger('hashchange');
   },
 
   hashLocation: function() {
@@ -20,7 +22,7 @@ var NavController = {
       $(".sort").val(sort);
       $(".category").val(category);
       $(".time").val(timeFrame);
-      this.hashChange();
+      // this.hashChange();
     } else {
       MapController.selectedCountry = MapController.assignRegion();
     }

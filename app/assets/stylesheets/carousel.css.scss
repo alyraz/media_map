@@ -1,9 +1,11 @@
 .top-items {
   overflow-y: scroll;
-  background-color: #eee;
-  border-radius: 1em;
+  overflow-x: hidden;
+  background-color: black;
   padding: 10px;
-  height: 200px;
+  height: 315px;
+  width: 130px;
+  position: relative;
   ul {
     margin: 0;
     padding: 5px 0 0 0;
