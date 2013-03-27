@@ -4,20 +4,29 @@
 
 <section>
   <div class="map">
+    <%= render "video_sort_options" %>
     <div id="world-map">
+    </div>
+    <div class="selected-item">
+      <div class="top-items">
+        <%= link_to content_tag(:span, "&rang;".html_safe), "#", :class => "show-videos" %>
+        <ul class="video-thumbnails"> 
+        </ul>
+        <ul>
+          <li class="fetch-videos"><%= link_to "more videos" , "#" %></li>
+        </ul>
+      </div>
+      <iframe id='ytplayer' type='text/html' 
+              width='345' height='210' 
+              src='' frameborder='0'>
+      </iframe>
     </div>
   </div>
 
   <div class='media-center'>
-    <%= render "video_sort_options" %>
-      <div class="video-container">
-        <div class="selected-item">
-          <iframe id='ytplayer' type='text/html' 
-                  width='550' height='335' 
-                  src='' frameborder='0'>
-          </iframe>
-        </div>
-        <div class="video-carousel">
+    
+<!--     <div class="video-container">
+      <div class="video-carousel">
         <div class="top-items">
           <ul class="video-thumbnails"> 
           </ul>
@@ -26,25 +35,6 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
-
-
 </section>
-
-<aside>
-  <div class="search-info">
-    <div class="share">
-    <!--   <form method="POST" action="#">
-        <input id="share-button" type="submit" value="Archive">
-      </form> -->
-    </div>
-
-    <div>
-      <%= render 'social_buttons' %>
-    </div>
-  </div>
-
-</aside>
-
-

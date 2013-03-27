@@ -1,30 +1,35 @@
 $ocean-blue: #a5bfdd;
 $base-page-width: 1024px;
-$aside-box-width: 260px;
+
+html {
+  height: 100%; 
+}
 
 body {
+  height: 100%;
   background-color: $ocean-blue;
 }
 
 #logo {
   float: left;
+  padding: 15px;
 }
 
 #page {
-  width: $base-page-width;
+  min-width: $base-page-width;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
 }
 
 section {
   float: left;
+  height: 100%;
+  width: -moz-calc(100% - 165px);
+  width: -webkit-calc(100% - 165px);
+  width: calc(100% - 165px);
   margin: 0 auto;
-  padding: 0 1em;
-}
-
-aside {
-  float: left;
-  width: $aside-box-width;
-  padding: 10px;
+  padding: 0 0 0 15px;
 }
 
 footer {

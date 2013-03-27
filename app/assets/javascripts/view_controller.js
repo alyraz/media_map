@@ -2,6 +2,7 @@ var ViewController = {
 
   init: function(){
     this.checkScroll();
+    this.enableTopItemClick();
     $('.video-thumbnails').on('click', 'li a', function(e){
       e.preventDefault();
       ViewController.updateVideo(this);
@@ -77,5 +78,17 @@ var ViewController = {
     if ( $('.top-items').scrollTop + $('.top-items').clientHeight == $('.top-items').scrollHeight ){
       alert("the end!");
     }
+  },
+
+  enableTopItemClick: function() {
+    $('.show-videos').on('click', function(e){
+      e.preventDefault();
+      ViewController.showThumbnails();
+    });
+  },
+
+  showThumbnails: function() {
+    $('.top-items').css('width', '135px');
+    $('.top-items ul').show();
   }
 };
