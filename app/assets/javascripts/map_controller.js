@@ -75,10 +75,12 @@ var MapController = {
       },
 
       onRegionClick: function(e, code){
-        if(!MapController.checkIfSelectable(code))
+        if(!MapController.checkIfSelectable(code)) {
           e.preventDefault();
-        else
+        } else {
           MapController.selectedCountry = code;
+          MapController.map.setFocus(code);
+        }
       },
 
       onRegionSelected: function(e, code, isSelected, selectedRegions){
@@ -88,7 +90,6 @@ var MapController = {
           $('.country').val(code);
           console.log("setting hash from MapController.map.onRegionSelected");
           NavController.setWindowHash(); // setting window hash, 
-          MapController.map.setFocus(code);
           ViewController.clearMedia();
           ViewController.updateFlag(code);
         }
