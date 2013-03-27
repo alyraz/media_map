@@ -26,7 +26,6 @@ class YoutubeWorker
         end
       end
     end
-
     hydra.run
   end
 
@@ -53,7 +52,6 @@ class YoutubeWorker
         end
       end
     end
-
     request
   end
 end
