@@ -1,6 +1,7 @@
 var FormController = {
   init: function(){
     this.sendSelection();
+    // $('.country').chosen();
   },
 
   sendSelection: function(){

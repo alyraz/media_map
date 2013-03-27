@@ -68,8 +68,10 @@ var MapController = {
       },
 
       onRegionOver: function(event, code){
-        if(!MapController.checkIfSelectable(code))
+        if(!MapController.checkIfSelectable(code)) {
           event.preventDefault();
+        }
+        this.css("cursor", "pointer");
       },
 
       onRegionClick: function(e, code){
