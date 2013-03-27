@@ -77,6 +77,7 @@ var MapController = {
         if(isSelected){
           this.selectedRegions = code;
           ViewController.setWindowHash();
+          MapController.map.setFocus(code);
           ViewController.clearMedia();
         }
       }
