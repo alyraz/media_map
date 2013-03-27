@@ -17,7 +17,6 @@ var VideoController = {
   },
 
   retrieveVideos: function(num){
-    // var num = num;
     $.ajax({
       type: "GET",
       url: this.createUrl(num),
