@@ -22,7 +22,12 @@ var NavController = {
       var sort        = params[2];
       var category    = params[3];
       var timeFrame   = params[4];
+      var date        = params[5];
       ViewController.updateFormSelection(sort, category, timeFrame);
+        // read client's location and UCT
+      // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
+        NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
+      // }
     } 
     // user has not made a selection; assign random country to view
     else {
@@ -49,5 +54,16 @@ var NavController = {
     }
     MapController.resetSelectedRegion();
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
+  },
+
+  retrieveArchivedVideos: function(country, sort, category, timeFrame, date){
+    d = new Date();
+      $.ajax({
+        type: "POST",
+        url: "/share",
+        data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
+      }).done(function( serverResponse ) {
+        console.log(serverResponse);
+      });
   }
 };
