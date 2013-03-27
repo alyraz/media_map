@@ -1,16 +1,36 @@
 .top-items {
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
-  height: 315px;
-  width: 130px;
-  position: relative;
+  height: 190px;
+  width: 15px;
+  float: right;
+  .hidden {
+    display: none;
+  }
+  .arrow {
+    position: absolute;
+    right: 5px;
+    height: 180px;
+    width: 20px;
+    color: #ccc;
+    text-decoration: none;
+    span {
+      line-height: 180px;
+      font-size: 25px;
+      width: 10px;
+    }
+  }
+  .arrow:hover {
+    color: #000;
+  }
   ul {
+    display: none;
     margin: 0;
     padding: 5px 0 0 0;
     list-style: none;
-    display: inline;
     li {
       clear: both;
       white-space: normal;
@@ -58,7 +78,7 @@
       }
     }
     li.fetch-videos {
-      width: 110px;
+      width: 107px;
       font-size: 1em;
       height: 20px;
       a {
@@ -67,9 +87,9 @@
       }
     }
     li.fetch-videos:hover {
-      background-color: #ccc;
+      background-color: none;
       a {
-        color: black;
+        color: #ccc;
         text-decoration: none;
       }
     }
