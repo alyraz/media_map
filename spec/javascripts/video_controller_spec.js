@@ -1,7 +1,8 @@
 describe("VideoController", function(){
   describe("#createUrl", function(){
     it("returns a valid youtube url", function(){
-      var url = VideoController.createUrl("JP");
+      MapController.selectedCountry = "JP";
+      var url = VideoController.createUrl();
       expect(url).toMatch('http://gdata.youtube.com/feeds/api/standardfeeds/JP');
     });
   });

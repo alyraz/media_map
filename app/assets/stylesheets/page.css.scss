@@ -4,7 +4,6 @@ $aside-box-width: 260px;
 
 body {
   background-color: $ocean-blue;
-  padding: 1em 0;
 }
 
 #logo {
@@ -30,4 +29,9 @@ aside {
 
 footer {
   clear: both;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 20x;
+  height: 40px;
 }

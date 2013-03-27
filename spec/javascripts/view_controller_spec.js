@@ -4,7 +4,7 @@ describe("ViewController", function(){
       var result = ["http://www.youtube.com/",
                     "embed/2?autoplay=1&enablejsapi=1"
                    ].join('');
-      expect(ViewController.createSrc(2)).toEqual(result);
+      expect(ViewController.createSrc(2, 1)).toEqual(result);
     });
   });
 
@@ -15,13 +15,19 @@ describe("ViewController", function(){
 
       var resultMarkup = ["<li class='tile' data-id='"+fakeVideo.id+"'>",
                           "<a href='#' class='tile-link'>",
-                          "<img src='"+fakeVideo.thumbnail.sqDefault+"'/>",
+                          "<img src='"+fakeVideo.thumbnail.sqDefault+"' height='80' width='107'>",
                           "<span class='thumbnail-title'>",
                           fakeVideo.title,
-                          "</span><span>",
-                          fakeVideo.viewCount,
+                          "</span><span class='view-count'>",
+                          ViewController.addCommas(fakeVideo.viewCount),
                           " views</span></a></li>"].join('');
       expect(ViewController.createThumbnailList(fakeVideo)).toEqual(resultMarkup);
+    });
+  });
+
+  describe("addCommas", function(){
+    it("inserts commas into a number string", function(){
+      expect(ViewController.addCommas("123456")).toEqual("123,456");
     });
   });
 

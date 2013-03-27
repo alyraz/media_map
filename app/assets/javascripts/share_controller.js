@@ -4,7 +4,7 @@ var ShareController = {
       event.preventDefault();
       console.log("inside here");
       var category = FormController.category();
-      var country = MapController.selectedCountry;//map.selectedRegions;
+      var country = MapController.selectedCountry;
       var time = FormController.timeFrame();
       var sort_type = FormController.sortBy();
 
@@ -18,8 +18,14 @@ var ShareController = {
         type: "POST",
         url: "/share",
         data: {shareData: shareData, videos: ShareController.getTopVideos()}
-      }).done(function(serverResponse) {
+      })
+      .done(function(serverResponse) {
         alert("Your share link is: " + "http://mediamap.com/" + serverResponse.data);
+      })
+      .fail(function(){
+        console.log("failed to post to /share");
+      })
+      .always(function(){
       });
 
     });
@@ -28,7 +34,7 @@ var ShareController = {
   getTopVideos: function(){
     videoIds = [];
     topVideosList = $('.top-items li');
-    for (var i=0;i<topVideosList.length;i++){
+    for (var i = 0; i < topVideosList.length; i++){
       var video = $(topVideosList[i]).data("id");
       videoIds.push(video);
     }

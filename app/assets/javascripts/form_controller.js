@@ -5,7 +5,9 @@ var FormController = {
 
   sendSelection: function(){
     $('form').change(function(){
-      ViewController.setWindowHash();
+      MapController.selectedCountry = FormController.country();
+      // logic unless it's not today 
+      NavController.setWindowHash(); // setting window hash
     });
   },
   
@@ -20,6 +22,9 @@ var FormController = {
 
   timeFrame: function(){
     return $('.time').find('option:selected').val();
-  }, 
-};
+  },
 
+  country: function(){
+    return $('.country').find('option:selected').val();
+  }
+};

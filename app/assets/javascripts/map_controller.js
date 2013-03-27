@@ -1,19 +1,18 @@
 var MapController = {
  
-  selectableRegions: ["AE", "AR", "AU", "BE", "BR", "CA",
-                      "CL", "CO", "CZ", "DE", "DZ",
-                      "EG", "ES", "FR", "GB", "GH",
-                      "GR", "HK", "HU", "ID", "IE", "IL",
-                      "IN", "IT", "JO", "JP", "KE", "KR",
-                      "MA", "MX", "MY", "NG", "NL",
-                      "NZ", "PE", "PH", "PL", "RU", "SA",
-                      "SE", "SG", "TN", "TR", "TW",
-                      "UG", "US", "YE", "ZA"],
+  selectableRegions: [
+    "AE", "AR", "AU", "BE", "BR", "CA", "CL", "CO", "CZ",
+    "DE", "DZ", "EG", "ES", "FR", "GB", "GH", "GR", "HK",
+    "HU", "ID", "IE", "IL", "IN", "IT", "JO", "JP", "KE",
+    "KR", "MA", "MX", "MY", "NG", "NL", "NZ", "PE", "PH",
+    "PL", "RU", "SA", "SE", "SG", "TN", "TR", "TW", "UG",
+    "US", "YE", "ZA"
+  ],
 
   createValuesMap: function(selectableRegions){
     var values = {};
       for(var i = 0, length = selectableRegions.length; i < length; i++)
-        values[selectableRegions[i]] = '#90DA94';
+        values[selectableRegions[i]] = '#CADFAA';
       return values;
   },
 
@@ -32,12 +31,16 @@ var MapController = {
     return this.selectableRegions[Math.floor(Math.random() * this.selectableRegions.length)];
   },
 
+  assignRandomRegion: function(){
+    this.selectedCountry = this.assignRegion();
+  },
+
   init: function(){
     this.map = new jvm.WorldMap({
       container: $('#world-map'),
       regionsSelectable: true,
       regionsSelectableOne: true, // allows only one selectable region
-      backgroundColor: "$ocean-blue",
+      backgroundColor: "#a5bfdd", // ocean blue
 
       regionStyle: {
         initial: {
@@ -45,10 +48,10 @@ var MapController = {
           stroke: 'none'
         },
         hover: {
-          "fill-opacity": 0.55
+          "fill-opacity": 0.65
         },
         selected: {
-          fill: '#3E57BB'
+          fill: 'green'
         }
       },
 
@@ -61,25 +64,34 @@ var MapController = {
       onRegionLabelShow: function(event, label, code){
         if(!MapController.checkIfSelectable(code)){
           event.preventDefault();
-        };
+        }
       },
 
       onRegionOver: function(event, code){
-        if(!MapController.checkIfSelectable(code))
+        if(!MapController.checkIfSelectable(code)) {
           event.preventDefault();
+        }
+        //this.css("cursor", "pointer");
       },
 
       onRegionClick: function(e, code){
-        if(!MapController.checkIfSelectable(code))
+        if(!MapController.checkIfSelectable(code)) {
           e.preventDefault();
+        } else {
           MapController.selectedCountry = code;
-      }, 
+          MapController.map.setFocus(code);
+        }
+      },
 
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         if(isSelected){
+          console.log("selecting " + code);
           this.selectedRegions = code;
-          ViewController.setWindowHash();
+          $('.country').val(code);
+          console.log("setting hash from MapController.map.onRegionSelected");
+          NavController.setWindowHash(); // setting window hash, 
           ViewController.clearMedia();
+          ViewController.updateFlag(code);
         }
       }
     });
