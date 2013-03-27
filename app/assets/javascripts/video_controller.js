@@ -37,7 +37,7 @@ var VideoController = {
 
   createUrl: function(num){
     return "http://gdata.youtube.com/feeds/api/standardfeeds/" +
-            MapController.selectedCountry+//map.selectedRegions+ 
+            MapController.selectedCountry+
             "/" +FormController.sortBy()+
             FormController.category()+
             "?v=2&time=" +FormController.timeFrame()+
