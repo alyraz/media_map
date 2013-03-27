@@ -12,7 +12,7 @@ var VideoController = {
     $('.top-items').on('click', '.fetch-videos', function(e){
       e.preventDefault();
       VideoController.additionalVideos += 10;
-      VideoController.retrieveVideos(VideoController.additionalVideos);
+      VideoController.retrieveMoreVideos(VideoController.additionalVideos);
     });
   },
 
@@ -30,6 +30,17 @@ var VideoController = {
     })
     .always(function(){
       console.log("I'm always doing this");
+    });
+  },
+
+  retrieveMoreVideos: function(num){
+    $.ajax({
+      type: "GET",
+      url: this.createUrl(num),
+      dataType: "json"})
+    .done(function(youtubeResponse){
+      VideoController.videos = youtubeResponse.data.items;
+      ViewController.populateThumbnails(VideoController.videos);
     });
   },
 

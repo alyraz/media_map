@@ -5,6 +5,7 @@ gem 'pg'
 gem 'thin'
 gem 'httparty'
 gem 'whenever', :require => false
+gem "chosen-rails", "~> 0.9.12"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
