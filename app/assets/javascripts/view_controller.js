@@ -1,7 +1,7 @@
 var ViewController = {
 
   init: function(){
-    $('.top-items').on('click', 'a', function(e){
+    $('.video-thumbnails').on('click', 'li a', function(e){
       e.preventDefault();
       ViewController.updateVideo(this);
     });
@@ -50,6 +50,7 @@ var ViewController = {
   },
 
   populateThumbnails: function(videos){
+    this.clearMedia();
     for(var i = 0; i < videos.length; i++){
       var thumbnail = videos[i].thumbnail.sqDefault;
       var id = videos[i].id;
