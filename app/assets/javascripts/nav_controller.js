@@ -2,31 +2,40 @@ var NavController = {
   init: function(){
     this.preparePage();
     $(window).on('hashchange', function(){
-      NavController.preparePage();    
+      NavController.hashChange();
     });
   },
 
-  preparePage: function(){
+  hashLocation: function() {
+    return window.location.hash.split("/");
+  },
 
-    var windowHash = window.location.href.split("/");
-    
-    if (windowHash[4]) {
-      MapController.selectedCountry = windowHash[4];
+  preparePage: function(){
+    var location = this.hashLocation();
+    if (location.length > 1) {
+      var sort        = location[2];
+      var category    = location[3];
+      var timeFrame   = location[4];
+      MapController.selectedCountry = location[1];
+      $(".sort").val(sort);
+      $(".category").val(category);
+      $(".time").val(timeFrame);
+      this.hashChange();
+    } else {
+      MapController.selectedCountry = MapController.assignRegion();
+    }
+    ViewController.setWindowHash();
+  },
+
+  hashChange: function() {
+    var location = this.hashLocation();
+    if (location[1]) {
+      MapController.selectedCountry = location[1];
     } else {
       MapController.selectedCountry = MapController.assignRegion();
       ViewController.setWindowHash();
     }
-    
     MapController.resetSelectedRegion();
-
-    var sort        = windowHash[5];
-    var category    = windowHash[6];
-    var timeFrame   = windowHash[7];
-
-    $(".sort").val(sort);
-    $(".category").val(category);
-    $(".time").val(timeFrame);
-
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
   }
-}
+};
