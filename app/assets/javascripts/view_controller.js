@@ -1,6 +1,8 @@
 var ViewController = {
 
   init: function(){
+    this.checkScroll();
+    this.enableTopItemClick();
     $('.video-thumbnails').on('click', 'li a', function(e){
       e.preventDefault();
       ViewController.updateVideo(this);
@@ -71,5 +73,34 @@ var ViewController = {
   updateFlag: function(code){
     var image = "assets/48-pixel-flags/"+code.toLowerCase()+".png";
     $('.flag').html("<img src='"+image+"'>");
+  },
+
+  checkScroll: function() {
+    if ( $('.top-items').scrollTop + $('.top-items').clientHeight == $('.top-items').scrollHeight ){
+      alert("the end!");
+    }
+  },
+
+  enableTopItemClick: function() {
+    $('.arrow').on('click', function(e){
+      e.preventDefault();
+      if ($(this).attr('class').indexOf('show-videos') !== -1) {
+        ViewController.showThumbnails();
+      } else {
+        ViewController.hideThumbnails();
+      }
+    });
+  },
+
+  showThumbnails: function() {
+    $('.arrow').toggleClass("hidden");
+    $('.top-items').css('width', '135px');
+    $('.top-items ul').show();
+  },
+
+  hideThumbnails: function(){
+    $('.arrow').toggleClass("hidden");
+    $('.top-items').css('width', '15px');
+    $('.top-items ul').hide();
   }
 };
