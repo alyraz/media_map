@@ -9,15 +9,15 @@ var ViewController = {
 
   updateVideo: function(link){
     var id = $(link).parent().attr('data-id');
-    $('#ytplayer').attr("src", this.createSrc(id));
+    $('#ytplayer').attr("src", this.createSrc(id, "1"));
   },
 
   clearMedia: function(){
     $('.top-items ul li.tile').remove();
   },
 
-  createSrc: function(id){
-    return "http://www.youtube.com/embed/" +id+ "?autoplay=1&enablejsapi=1";
+  createSrc: function(id, playSetting){
+    return "http://www.youtube.com/embed/" +id+ "?autoplay=" +playSetting+ "&enablejsapi=1";
   },
 
   createThumbnailList: function(video){
@@ -31,7 +31,7 @@ var ViewController = {
   },
 
   setWindowHash: function(){
-    var code = MapController.selectedCountry;//map.selectedRegions;
+    var code = MapController.selectedCountry;
     var sortBy = FormController.sortBy();
     var category = FormController.category();
     var timeFrame = FormController.timeFrame();
@@ -46,7 +46,7 @@ var ViewController = {
   render: function(videos){
     this.clearMedia();
     this.populateThumbnails(videos);
-    var src = this.createSrc(videos[0].id);
+    var src = this.createSrc(videos[0].id, "0");
     $('#ytplayer').attr("src", src).show();
   },
 

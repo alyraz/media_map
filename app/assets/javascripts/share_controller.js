@@ -4,7 +4,7 @@ var ShareController = {
       event.preventDefault();
       console.log("inside here");
       var category = FormController.category();
-      var country = MapController.selectedCountry;//map.selectedRegions;
+      var country = MapController.selectedCountry;
       var time = FormController.timeFrame();
       var sort_type = FormController.sortBy();
 
@@ -23,7 +23,7 @@ var ShareController = {
         alert("Your share link is: " + "http://mediamap.com/" + serverResponse.data);
       })
       .fail(function(){
-        console.log("failed to post to /share")
+        console.log("failed to post to /share");
       })
       .always(function(){
       });
