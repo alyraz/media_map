@@ -85,7 +85,7 @@ var MapController = {
           this.selectedRegions = code;
           $('.country').val(code);
           console.log("setting hash from MapController.map.onRegionSelected");
-          ViewController.setWindowHash(); // setting window hash, 
+          NavController.setWindowHash(); // setting window hash, 
           MapController.map.setFocus(code);
           ViewController.clearMedia();
         }

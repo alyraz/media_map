@@ -34,8 +34,8 @@ var NavController = {
       MapController.assignRandomRegion();
     }
 
-    console.log("setting hash from nav controller preparePage");
-    ViewController.setWindowHash(); // setting window hash, i get called first from NavController.init()
+    console.log("setting hash from NavController.preparePage");
+    this.setWindowHash();
 
     // update url to reflect current location
     this.handleHashChange();
@@ -50,20 +50,31 @@ var NavController = {
     else {
       MapController.selectedCountry = MapController.assignRegion();
       console.log("setting window hash from Nav Controller");
-      ViewController.setWindowHash(); // setting window hash
+      this.setWindowHash(); // setting window hash
     }
     MapController.resetSelectedRegion();
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
   },
 
+  setWindowHash: function(){
+    var code = MapController.selectedCountry;
+    var sortBy = FormController.sortBy();
+    var category = FormController.category();
+    var timeFrame = FormController.timeFrame();
+
+    var hash = ["maps", code, sortBy, category, timeFrame].join("/");
+    location.hash = hash;
+  },
+
   retrieveArchivedVideos: function(country, sort, category, timeFrame, date){
     d = new Date();
-      $.ajax({
-        type: "POST",
-        url: "/share",
-        data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
-      }).done(function( serverResponse ) {
-        console.log(serverResponse);
-      });
+    $.ajax({
+      type: "POST",
+      url: "/share",
+      data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
+    })
+    .done(function( serverResponse ) {
+      console.log(serverResponse);
+    });
   }
 };

@@ -30,16 +30,6 @@ var ViewController = {
             " views</span></a></li>"].join('');
   },
 
-  setWindowHash: function(){
-    var code = MapController.selectedCountry;
-    var sortBy = FormController.sortBy();
-    var category = FormController.category();
-    var timeFrame = FormController.timeFrame();
-
-    var hash = "maps/" + code+ "/" +sortBy+ "/" +category+ "/" +timeFrame;
-    location.hash = hash;
-  },
-
   render: function(videos){
     this.clearMedia();
     this.populateThumbnails(videos);
