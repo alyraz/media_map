@@ -27,9 +27,6 @@ var VideoController = {
     })
     .fail(function(){
       console.log("There was an error");
-    })
-    .always(function(){
-      console.log("I'm always doing this");
     });
   },
 

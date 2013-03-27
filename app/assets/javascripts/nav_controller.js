@@ -1,41 +1,50 @@
 var NavController = {
   init: function(){
-    this.preparePage();
+    // set up listener on future url hash changes
     $(window).on('hashchange', function(){
-      NavController.hashChange();
+      NavController.handleHashChange();
     });
 
-    $(window).trigger('hashchange');
+    this.preparePage();
   },
 
-  hashLocation: function() {
+  hashParameters: function() {
     return window.location.hash.split("/");
   },
 
   preparePage: function(){
-    var location = this.hashLocation();
-    if (location.length > 1) {
-      var sort        = location[2];
-      var category    = location[3];
-      var timeFrame   = location[4];
-      MapController.selectedCountry = location[1];
-      $(".sort").val(sort);
-      $(".category").val(category);
-      $(".time").val(timeFrame);
+    // get parameters from hash
+    var params = this.hashParameters();
+
+    // if we have parameters in hash, retrieve them and send to view
+    if (params.length > 1) {
+      MapController.selectedCountry = params[1];
+      var sort        = params[2];
+      var category    = params[3];
+      var timeFrame   = params[4];
+      ViewController.updateFormSelection(sort, category, timeFrame);
     } 
+    // user has not made a selection; assign random country to view
     else {
-      MapController.selectedCountry = MapController.assignRegion();
+      MapController.assignRandomRegion();
     }
+
+    console.log("setting hash from nav controller preparePage");
     ViewController.setWindowHash(); // setting window hash, i get called first from NavController.init()
+
+    // update url to reflect current location
+    this.handleHashChange();
   },
 
-  hashChange: function() {
-    var location = this.hashLocation();
-    if (location[1]) {
-      MapController.selectedCountry = location[1];
-    } 
+  handleHashChange: function() {
+    console.log("change hash called");
+    var params = this.hashParameters();
+    if (params[1]) {
+      MapController.selectedCountry = params[1];
+    }
     else {
       MapController.selectedCountry = MapController.assignRegion();
+      console.log("setting window hash from Nav Controller");
       ViewController.setWindowHash(); // setting window hash
     }
     MapController.resetSelectedRegion();

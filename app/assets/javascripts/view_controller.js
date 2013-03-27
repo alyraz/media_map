@@ -31,8 +31,6 @@ var ViewController = {
   },
 
   setWindowHash: function(){
-    console.log("setting hash");
-    debugger
     var code = MapController.selectedCountry;
     var sortBy = FormController.sortBy();
     var category = FormController.category();
@@ -63,5 +61,12 @@ var ViewController = {
       views = views.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
     }
     return views;
+  },
+
+  updateFormSelection: function(sort, category, timeFrame) {
+    $(".sort").val(sort);
+    $(".category").val(category);
+    $(".time").val(timeFrame);
+    $(".country").val(MapController.selectedCountry);
   }
 };
