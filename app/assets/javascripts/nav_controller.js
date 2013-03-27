@@ -1,12 +1,13 @@
 var NavController = {
   init: function(){
-    // this is what happens on initial page load
     this.preparePage();
 
-    // this is what happens any time the hash changes
+    // set up listener on future url hash changes
     $(window).on('hashchange', function(){
       NavController.updatePageFromHash();
     });
+
+    $(window).trigger("hashchange");
   },
 
   hashParameters: function(){
@@ -16,10 +17,10 @@ var NavController = {
   preparePage: function(){
     // get parameters from hash
     var params = this.hashParameters();
-
     // if we have parameters in hash, retrieve them and send to view for storing
     if (params.length > 1){
       MapController.selectedCountry = params[1];
+      var country     = params[1];
       var sort        = params[2];
       var category    = params[3];
       var timeFrame   = params[4];
@@ -27,22 +28,18 @@ var NavController = {
       ViewController.updateFormSelection(sort, category, timeFrame);
       // read client's location and UCT
       // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
-      NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
-
+      NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
       // }
     }
     // user has not made a selection; assign random country to view
     else {
       MapController.assignRandomRegion();
-      this.setWindowHash();
     }
 
-    // update page based on hash change
-    this.updatePageFromHash();
+    this.setWindowHash();
   },
 
   updatePageFromHash: function(){
-    console.log("update page from hash called");
     var params = this.hashParameters();
     if (params[1]) {
       MapController.selectedCountry = params[1];
@@ -64,6 +61,7 @@ var NavController = {
     var timeFrame = FormController.timeFrame();
     var date      = ViewController.formattedDate();
     var urlHash = ["maps", code, sortType, category, timeFrame, date].join("/");
+
 
     // update url with values of current selection
     location.hash = urlHash;
