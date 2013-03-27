@@ -22,4 +22,3 @@ var FormController = {
     return $('.time').find('option:selected').val();
   }, 
 };
-

@@ -5,7 +5,6 @@ var VideoController = {
   init: function(){
     this.defaultVideoQuery = 4;
     this.additionalVideos = 4;
-    //this.retrieveVideos(4);
     this.getMoreVideos();
   },
 
@@ -22,8 +21,8 @@ var VideoController = {
       type: "GET",
       url: this.createUrl(num),
       dataType: "json"})
-    .done(function(youtubeObj){
-      VideoController.videos = youtubeObj.data.items;
+    .done(function(youtubeResponse){
+      VideoController.videos = youtubeResponse.data.items;
       ViewController.render(VideoController.videos);
     })
     .fail(function(){

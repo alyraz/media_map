@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20130324215925) do
     t.integer  "position",   :null => false
     t.integer  "share_id",   :null => false
     t.integer  "video_id"
+    t.integer  "view_count"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

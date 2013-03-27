@@ -26,7 +26,7 @@ var ViewController = {
             "<span class='thumbnail-title'>",
             video.title,
             "</span><span class='view-count'>",
-            video.viewCount,
+            ViewController.addCommas(video.viewCount),
             " views</span></a></li>"].join('');
   },
 
@@ -56,5 +56,12 @@ var ViewController = {
       var id = videos[i].id;
       $('.video-thumbnails').append(ViewController.createThumbnailList(videos[i]));
     }
+  },
+
+  addCommas: function(views){
+    while (/(\d+)(\d{3})/.test(views.toString())){
+      views = views.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return views;
   }
 };
