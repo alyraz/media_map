@@ -26,11 +26,13 @@ var NavController = {
       var category    = params[3];
       var timeFrame   = params[4];
       var date        = params[5];
+
+      // check if date is today
+      if (!this.isCurrentDate(date)){
+        NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
+      }
+
       ViewController.updateFormSelection(sort, category, timeFrame);
-      // read client's location and UCT
-      // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
-      NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
-      // }
     }
     // user has not made a selection; assign random country to view
     else {
@@ -38,6 +40,12 @@ var NavController = {
     }
     this.setWindowHash();
   },
+
+  isCurrentDate: function(date){
+    var d = new Date ();
+    return date === ((d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear());
+  },
+
 
   updatePageFromHash: function(){
     var params = this.hashParameters();
@@ -74,6 +82,9 @@ var NavController = {
     })
     .done(function( serverResponse ) {
       console.log(serverResponse);
+    })
+    .fail(function(){
+      console.log("request failed");
     });
   }
 };
