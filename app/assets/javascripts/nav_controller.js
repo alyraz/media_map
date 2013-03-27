@@ -24,9 +24,10 @@ var NavController = {
       var timeFrame   = params[4];
       var date        = params[5];
       ViewController.updateFormSelection(sort, category, timeFrame);
+
       // read client's location and UCT
       // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
-        NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
+      //   NavController.retrieveArchivedVideos(MapController.selectedCountry, sort, category, timeFrame, date);
       // }
     } 
     // user has not made a selection; assign random country to view
