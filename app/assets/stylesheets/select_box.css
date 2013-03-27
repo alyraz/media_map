@@ -53,12 +53,13 @@ form input:focus {
 }
 
 .context-sentence {
-  background: rgba(20,20,20);
+  margin-top: 6px;
+  background: rgba(20,20,20,0.8);
   position: absolute;
   z-index: 1;
   font-size: 14px;
   color: white;
-  width: $video-player-width;
+  width: 700px;
 }
 
 

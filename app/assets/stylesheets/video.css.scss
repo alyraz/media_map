@@ -1,5 +1,5 @@
 $iframe-width: 550px;
-$video-player-width: 750px;
+$video-player-width: 700px;
 $disabled-country-color: #f6f5f2;
 
 .video-container {
@@ -19,5 +19,7 @@ $disabled-country-color: #f6f5f2;
 .media-center {
   position: relative;
   width: $video-player-width;
-  background-color: rgba(20,20,20,0.9);
+  //background-color: rgba(20,20,20,0.9);
 }
+
+
