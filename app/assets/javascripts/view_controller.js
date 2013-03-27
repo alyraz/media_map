@@ -31,6 +31,8 @@ var ViewController = {
   },
 
   setWindowHash: function(){
+    console.log("setting hash");
+    debugger
     var code = MapController.selectedCountry;
     var sortBy = FormController.sortBy();
     var category = FormController.category();

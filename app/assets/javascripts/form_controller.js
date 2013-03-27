@@ -5,7 +5,7 @@ var FormController = {
 
   sendSelection: function(){
     $('form').change(function(){
-      ViewController.setWindowHash();
+      ViewController.setWindowHash(); // setting window hash
     });
   },
   

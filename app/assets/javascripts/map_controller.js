@@ -78,7 +78,7 @@ var MapController = {
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         if(isSelected){
           this.selectedRegions = code;
-          ViewController.setWindowHash();
+          ViewController.setWindowHash(); // setting window hash, 
           MapController.map.setFocus(code);
           ViewController.clearMedia();
         }

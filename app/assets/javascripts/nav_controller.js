@@ -22,20 +22,21 @@ var NavController = {
       $(".sort").val(sort);
       $(".category").val(category);
       $(".time").val(timeFrame);
-      // this.hashChange();
-    } else {
+    } 
+    else {
       MapController.selectedCountry = MapController.assignRegion();
     }
-    ViewController.setWindowHash();
+    ViewController.setWindowHash(); // setting window hash, i get called first from NavController.init()
   },
 
   hashChange: function() {
     var location = this.hashLocation();
     if (location[1]) {
       MapController.selectedCountry = location[1];
-    } else {
+    } 
+    else {
       MapController.selectedCountry = MapController.assignRegion();
-      ViewController.setWindowHash();
+      ViewController.setWindowHash(); // setting window hash
     }
     MapController.resetSelectedRegion();
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
