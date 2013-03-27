@@ -73,11 +73,12 @@ var MapController = {
           e.preventDefault();
         else
           MapController.selectedCountry = code;
-      }, 
+      },
 
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         if(isSelected){
           this.selectedRegions = code;
+          $('.country').val(code);
           ViewController.setWindowHash();
           MapController.map.setFocus(code);
           ViewController.clearMedia();
