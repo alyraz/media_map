@@ -26,7 +26,7 @@ var ViewController = {
             "<span class='thumbnail-title'>",
             video.title,
             "</span><span class='view-count'>",
-            video.viewCount,
+            ViewController.addCommas(video.viewCount),
             " views</span></a></li>"].join('');
   },
 
@@ -52,5 +52,12 @@ var ViewController = {
     }
     var src = this.createSrc(videos[0].id);
     $('#ytplayer').attr("src", src).show();
+  },
+
+  addCommas: function(views){
+    while (/(\d+)(\d{3})/.test(views.toString())){
+      views = views.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+    }
+    return views;
   }
 };
