@@ -3,7 +3,9 @@
 </div>
 
 <section>
+  
   <div class="map">
+  <div><%= render "video_sort_options" %></div>
     <div id="world-map">
     </div>
   </div>
@@ -20,9 +22,6 @@
 
 <aside>
   <div class="search-info">
-    <div>
-      <%= render "video_sort_options" %>
-    </div>
     <div class="share">
       <form method="POST" action="#">
         <input id="share-button" type="submit" value="Archive">

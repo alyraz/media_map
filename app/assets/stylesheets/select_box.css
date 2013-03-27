@@ -11,12 +11,16 @@
    -webkit-appearance: none;
    cursor: hand;
    cursor: pointer;
+
    }
+
 .styled-select {
-   width: 220px;
+   width: 150px;
    height: 34px;
    overflow: hidden;
    background: url(/assets/down_arrow.png) no-repeat right;
+    position: relative;
+    z-index: 1;
    /*border: 1px solid #ccc;*/
    }
 
@@ -30,22 +34,48 @@ select {
   color: red;
 }
 select.sort{
-  font-size: 24px;
 }
 .category {
   color: blue;
 }
 select.category{
-  font-size: 22px;
 }
 .time {
   color: yellow;
 }
 select.time {
-  font-size: 20px;
 }
 
 form input:focus{
   outline: none;
   box-shadow: none;
 }
+
+.context-sentence li {
+  list-style: none;
+  position: relative;
+  float: left;
+}
+
+.context-sentence {
+  width: 100%;
+  background: rgba(20,20,20,0.7);
+  position: absolute;
+  z-index: 1;
+  font-size: 12px;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

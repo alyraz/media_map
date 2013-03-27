@@ -1,8 +1,8 @@
 <%= form_tag do %>
-  <div>
-    <span>
-        You are watching the
-      <div class="styled-select">
+  <div class='context-sentence'>
+      <ul>
+      <li>You are watching the</li>
+      <li><div class="styled-select">
         <%= select_tag( :sort,
                         options_for_select([["most popular", "most_popular"],
                                             ["most discussed", "most_discussed"],
@@ -12,8 +12,8 @@
                                             ["top favorited", "top_favorites"],]),
                         { :class => "sort" }) %>
 
-      </div>
-      <div class="styled-select">
+      </div></li>
+      <li><div class="styled-select">
         <%= select_tag( :category,
                         options_for_select([["of all", "all"],
                                             ["music", "_Music"],
@@ -22,17 +22,17 @@
                                             ["sport","_Sports"],
                                             ["movie", "_Movies"]]),
                         { :class => "category" }) %>
-      </div>
-        videos from
-      <div class="styled-select">
+      </div></li>
+      <li>videos from</li>
+      <li><div class="styled-select">
         <%= select_tag( :time, 
                         options_for_select([["today", "today"],
                                             ["this week", "this_week"],
                                             ["this month", "this_month"],
                                             ["all time", "all_time"]]),
                         { :class => "time" }) %>
-        for Uganda.
-      </div>
-    </span>
+      </div></li>
+      <li>for Uganda.</li>
+    </ul>
   </div>
 <% end %>
