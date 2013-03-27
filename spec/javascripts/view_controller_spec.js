@@ -25,6 +25,12 @@ describe("ViewController", function(){
     });
   });
 
+  describe("addCommas", function(){
+    it("inserts commas into a number string", function(){
+      expect(ViewController.addCommas("123456")).toEqual("123,456");
+    });
+  });
+
   describe("clearMedia", function(){
     it("removes the list items and video from the view", function(){
       // pending test
