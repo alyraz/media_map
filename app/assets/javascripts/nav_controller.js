@@ -12,7 +12,8 @@ var NavController = {
     
     if (windowHash[4]) {
       MapController.selectedCountry = windowHash[4];
-    } else {
+    }
+    else {
       MapController.selectedCountry = MapController.assignRegion();
       ViewController.setWindowHash();
     }
