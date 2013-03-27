@@ -1,11 +1,8 @@
 $iframe-width: 550px;
-$video-player-width: 700px;
+$video-player-width: 750px;
 $disabled-country-color: #f6f5f2;
 
 .video-container {
-	//background-color: $disabled-country-color;
-  border: 1px solid black;
-  //border-radius: 1em;
   width: $video-player-width;
   position: relative;
   padding-top: 60px;
@@ -21,6 +18,6 @@ $disabled-country-color: #f6f5f2;
 
 .media-center {
   position: relative;
-  width: 750px;
-  background-color: rgba(20,20,20,0.8);
+  width: $video-player-width;
+  background-color: rgba(20,20,20,0.9);
 }

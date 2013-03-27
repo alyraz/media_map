@@ -11,7 +11,7 @@
    cursor: hand;
    cursor: pointer;
 
-   }
+}
 
 .styled-select {
   width: 130px;
@@ -22,28 +22,26 @@
   top: -10px;
   background-color: rgba(20,20,20,0.8);
   margin: 0 3px;
-   
-   /*border: 1px solid #ccc;*/
-   }
+  /*border: 1px solid #ccc;*/
+}
 
 select {
   color: white;
   text-shadow: 0 0 0 #000;
+  text-align: center;
 }
 
-
-select.sort{
- 
+select.sort { 
 }
 
-select.category{
+select.category {
  
 }
 
 select.time {
 }
 
-form input:focus{
+form input:focus {
   outline: none;
   box-shadow: none;
 }
@@ -55,12 +53,12 @@ form input:focus{
 }
 
 .context-sentence {
-  background: rgba(20,20,20,0.7);
+  background: rgba(20,20,20);
   position: absolute;
   z-index: 1;
   font-size: 14px;
   color: white;
-  width: 750px;
+  width: $video-player-width;
 }
 
 
