@@ -7,6 +7,7 @@ var NavController = {
       NavController.updatePageFromHash();
     });
 
+    // trigger listener on first page load
     $(window).trigger("hashchange");
   },
 
@@ -45,10 +46,10 @@ var NavController = {
     }
     else {
       MapController.selectedCountry = MapController.assignRegion();
-      console.log("setting window hash from Nav Controller");
-      this.setWindowHash(); // setting window hash
+      this.setWindowHash();
     }
-    MapController.resetSelectedRegion();
+
+    MapController.updateSelectedRegion();
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
   },
 
@@ -60,7 +61,6 @@ var NavController = {
     var timeFrame = FormController.timeFrame();
     var date      = ViewController.formattedDate();
     var urlHash = ["maps", code, sortType, category, timeFrame, date].join("/");
-
 
     // update url with values of current selection
     location.hash = urlHash;
