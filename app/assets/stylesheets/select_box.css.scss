@@ -41,21 +41,15 @@ form input:focus {
 
 .context-sentence li {
   list-style: none;
-  position: relative;
   float: left;
+  
 }
 
 .context-sentence {
-  margin-top: 6px;
-  background: rgb(20,20,20);
   background: rgba(20,20,20,0.5);
-  position: absolute;
-  z-index: 1;
   font-size: $font-size;
   color: white;
-  width: 1000px;
-  border-radius: 15px;
-  float: left;
+  width: 100%;
 }
 
 .flag {
@@ -63,10 +57,9 @@ form input:focus {
   padding-left: 10px;
 }
 
-form {
-  position: relative;
-  width: 830px;
-  margin: auto;
+form, form ul {
+  width: 50%;
+  margin: 0px auto;
 }
 
 

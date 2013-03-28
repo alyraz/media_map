@@ -1,41 +1,39 @@
 <%= form_tag do %>
-  <div class='context-sentence'>
-      <ul>
-      <li>Show me the&nbsp;</li>
-      <li><div class="styled-select">
-        <%= select_tag( :sort,
-                        options_for_select([["most popular", "most_popular"],
-                                            ["most discussed", "most_discussed"],
-                                            ["most responded", "most_responded"],
-                                            ["top rated", "top_rated"],
-                                            ["top favorited", "top_favorites"],]),
-                        { :class => "sort" }) %>
+    <ul>
+    <li>Show me the&nbsp;</li>
+    <li><div class="styled-select">
+      <%= select_tag( :sort,
+                      options_for_select([["most popular", "most_popular"],
+                                          ["most discussed", "most_discussed"],
+                                          ["most responded", "most_responded"],
+                                          ["top rated", "top_rated"],
+                                          ["top favorited", "top_favorites"],]),
+                      { :class => "sort" }) %>
 
-      </div></li>
-      <li><div class="styled-select">
-        <%= select_tag( :category,
-                        options_for_select([["of all", "all"],
-                                            ["music", "_Music"],
-                                            ["news", "_News"],
-                                            ["entertainment", "_Entertainment"],
-                                            ["sport","_Sports"],
-                                            ["movie", "_Movies"]]),
-                        { :class => "category" }) %>
-      </div></li>
-      <li>&nbsp;videos from&nbsp;</li>
-      <li><div class="styled-select">
-        <%= select_tag( :time, 
-                        options_for_select([["today", "today"],
-                                            ["this week", "this_week"],
-                                            ["this month", "this_month"],
-                                            ["all time", "all_time"]]),
-                        { :class => "time" }) %>
-      </div></li>
-      <li>&nbsp;for&nbsp;</li>
-      <li><div class="styled-select">
-        <%= render "country_select" %>
-      </div></li>
-      <li class="flag"></li>
-    </ul>
-  </div>
+    </div></li>
+    <li><div class="styled-select">
+      <%= select_tag( :category,
+                      options_for_select([["of all", "all"],
+                                          ["music", "_Music"],
+                                          ["news", "_News"],
+                                          ["entertainment", "_Entertainment"],
+                                          ["sport","_Sports"],
+                                          ["movie", "_Movies"]]),
+                      { :class => "category" }) %>
+    </div></li>
+    <li>&nbsp;videos from&nbsp;</li>
+    <li><div class="styled-select">
+      <%= select_tag( :time, 
+                      options_for_select([["today", "today"],
+                                          ["this week", "this_week"],
+                                          ["this month", "this_month"],
+                                          ["all time", "all_time"]]),
+                      { :class => "time" }) %>
+    </div></li>
+    <li>&nbsp;for&nbsp;</li>
+    <li>
+      <%= render "country_select" %>
+    </li>
+    <li class="flag"></li>
+  </ul>
 <% end %>
