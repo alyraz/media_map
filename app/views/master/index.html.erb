@@ -14,11 +14,13 @@
       <div class="top-items">
         <%= link_to content_tag(:span, "&rang;".html_safe), "#", :class => "arrow show-videos" %>
         <%= link_to content_tag(:span, "&lang;".html_safe), "#", :class => "arrow hide-videos hidden" %>
-        <ul class="video-thumbnails">
+        <ul>
           <li class="list-title">Top videos:</li>
         </ul>
+        <ul class="video-thumbnails">
+        </ul>
         <ul>
-          <li class="fetch-videos"><%= link_to "more videos" , "#" %></li>
+          <li class="fetch-videos"><%= link_to "more" , "#" %></li>
         </ul>
       </div>
       <iframe id='ytplayer' type='text/html' 
