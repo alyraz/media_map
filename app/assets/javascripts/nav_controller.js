@@ -66,6 +66,7 @@ var NavController = {
       this.setWindowHash();
     }
 
+    MapController.clearSelectedRegion();
     MapController.updateSelectedRegion();
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
   },
