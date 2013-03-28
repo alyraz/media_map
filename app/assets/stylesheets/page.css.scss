@@ -6,7 +6,9 @@ html {
 }
 
 body {
-  height: 100%;
+  height: -moz-calc(100% - 40px);
+  height: -webkit-calc(100% - 40px);
+  height: calc(100% - 40px);
   background-color: $ocean-blue;
 }
 
