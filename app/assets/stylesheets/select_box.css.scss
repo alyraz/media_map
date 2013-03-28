@@ -14,11 +14,10 @@ $font-size: 16px;
    -moz-appearance: none;
    cursor: hand;
    cursor: pointer;
-
 }
 
 .styled-select {
-  width: 130px;
+  width: 135px;
   height: $box-height;
   overflow: hidden;
   background: url(/assets/down_arrow.png) no-repeat right;
@@ -33,16 +32,6 @@ $font-size: 16px;
 select {
   color: white;
   text-shadow: 0 0 0 #000;
-}
-
-select.sort { 
-}
-
-select.category {
- 
-}
-
-select.time {
 }
 
 form input:focus {
@@ -64,15 +53,21 @@ form input:focus {
   z-index: 1;
   font-size: $font-size;
   color: white;
-  width: 880px;
+  width: 1000px;
   border-radius: 15px;
+  float: left;
 }
 
 .flag {
   margin-top: -15px;
+  padding-left: 10px;
 }
 
-
+form {
+  position: relative;
+  width: 830px;
+  margin: auto;
+}
 
 
 

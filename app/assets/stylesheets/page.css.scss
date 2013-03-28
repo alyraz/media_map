@@ -25,23 +25,20 @@ body {
 }
 
 section {
-  float: left;
   height: 100%;
   width: -moz-calc(100% - 165px);
   width: -webkit-calc(100% - 165px);
   width: calc(100% - 165px);
   margin: 0 auto;
-  padding: 0 0 0 15px;
 }
 
 .selected-item {
-  position: absolute;
-  left: -152px;
-  bottom: 15px;
+  position: relative;
   padding: 7px;
   background-color: rgba(20,20,20,0.8);
   border-radius: 15px;
-
+  margin: auto;
+  width: 540px;
 }
 
 footer {
@@ -50,7 +47,7 @@ footer {
   background-color: rgba(20,20,20,0.9);
   color: white;
   font-size: 15px;
-  height: 30px;
+  height: 40px;
   position: relative;
   .signature {
     display: inline-block;
