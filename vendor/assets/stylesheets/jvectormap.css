@@ -19,7 +19,7 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
   background: #5a5c69;
-  padding: 8px;
+  padding: 10px;
   color: #ccc;
   width: 10px;
   height: 10px;
@@ -30,7 +30,7 @@
 
 .jvectormap-zoomin {
   bottom: 10px;
-  right: 40px;
+  right: 45px;
 }
 
 .jvectormap-zoomout {
