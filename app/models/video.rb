@@ -4,5 +4,3 @@ class Video < ActiveRecord::Base
 
   serialize :youtube_video_object
 end
-
-# Video.youtube_data = YoutubeData.new(:name => 'blah', :age => 12, :banana_count => 15)
