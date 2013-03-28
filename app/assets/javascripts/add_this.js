@@ -4,8 +4,8 @@ var addthis_config = {
 };
 
 var addthis_share = {
-  title: "MapTube: The World's Videos through a Map",
+  title: "GeoTube: The World's Videos through a Map",
   templates: {
-    twitter: "Explore the world's videos with a map. {{lurl}} #maptube"
+    twitter: "Explore the world's videos with a map. {{lurl}} #geotube"
   }
 };

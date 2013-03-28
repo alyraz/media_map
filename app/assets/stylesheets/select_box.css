@@ -2,11 +2,11 @@
    background: transparent;
    width: 220px;
    padding: 5px;
-   font-size: 14px;
+   font-size: 16px;
    line-height: 1;
    border: 0;
    border-radius: 0;
-   height: 34px;
+   height: 30px;
    -webkit-appearance: none;
    -moz-appearance: none;
    cursor: hand;
@@ -16,15 +16,14 @@
 
 .styled-select {
   width: 130px;
-  height: 34px;
+  height: 30px;
   overflow: hidden;
   background: url(/assets/down_arrow.png) no-repeat right;
   position: relative;
   top: -10px;
   background-color: rgb(20,20,20);
-  background-color: rgba(20,20,20,0.8);
-  margin: 2px 3px 0 3px;
-  /*border: 1px solid #ccc;*/
+  background-color: rgba(20,20,20,0.3);
+  margin: 4px 3px 0 3px;
 }
 
 select {
@@ -56,12 +55,13 @@ form input:focus {
 .context-sentence {
   margin-top: 6px;
   background: rgb(20,20,20);
-  background: rgba(20,20,20,0.8);
+  background: rgba(20,20,20,0.5);
   position: absolute;
   z-index: 1;
-  font-size: 14px;
+  font-size: 16px;
   color: white;
-  width: 855px;
+  width: 895px;
+  border-radius: 15px;
 }
 
 .flag {

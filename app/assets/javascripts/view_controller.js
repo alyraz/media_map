@@ -92,13 +92,13 @@ var ViewController = {
 
   showThumbnails: function() {
     $('.arrow').toggleClass("hidden");
-    $('.top-items').css('width', '135px');
+    $('.top-items').css('width', '145px');
     $('.top-items ul').show();
   },
 
   hideThumbnails: function(){
     $('.arrow').toggleClass("hidden");
-    $('.top-items').css('width', '20px');
+    $('.top-items').css('width', '30px');
     $('.top-items ul').hide();
   }
 };

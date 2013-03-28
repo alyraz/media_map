@@ -13,8 +13,12 @@ body {
 }
 
 #logo {
+  display: none;
+}
+
+#title {
   float: left;
-  padding: 15px;
+  padding: 50px 10px;
   height: 50%;
 }
 
@@ -28,9 +32,9 @@ body {
 section {
   float: left;
   height: 100%;
-  width: -moz-calc(100% - 165px);
-  width: -webkit-calc(100% - 165px);
-  width: calc(100% - 165px);
+  width: -moz-calc(100% - 175px);
+  width: -webkit-calc(100% - 175px);
+  width: calc(100% - 175px);
   margin: 0 auto;
   padding: 0 0 0 15px;
 }

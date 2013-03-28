@@ -2,15 +2,15 @@ class YoutubeWorker
   include Sidekiq::Worker
 
   def perform
-    selectable_regions =  ["AE", "AR"] #, "AU", "BE", "BR", "CA",
-                      # "CL", "CO", "CZ", "DE", "DZ",
-                      # "EG", "ES", "FR", "GB", "GH",
-                      # "GR", "HK", "HU", "ID", "IE", "IL",
-                      # "IN", "IT", "JO", "JP", "KE", "KR",
-                      # "MA", "MX", "MY", "NG", "NL",
-                      # "NZ", "PE", "PH", "PL", "RU", "SA",
-                      # "SE", "SG", "TN", "TR", "TW",
-                      # "UG", "US", "YE", "ZA"]
+    selectable_regions =  ["AE", "AR", "AU", "BE", "BR", "CA",
+                      "CL", "CO", "CZ", "DE", "DZ",
+                      "EG", "ES", "FR", "GB", "GH",
+                      "GR", "HK", "HU", "ID", "IE", "IL",
+                      "IN", "IT", "JO", "JP", "KE", "KR",
+                      "MA", "MX", "MY", "NG", "NL",
+                      "NZ", "PE", "PH", "PL", "RU", "SA",
+                      "SE", "SG", "TN", "TR", "TW",
+                      "UG", "US", "YE", "ZA"]
     sorts = ["most_popular", "most_discussed", "most_responded", "most_subscribed", "top_rated", "top_favorites"]
     categories = ["", "_Music", "_News", "_Entertainment", "_Sports", "_Movies"]
     times = ["today", "all_time"]
@@ -38,7 +38,6 @@ class YoutubeWorker
       result = JSON.parse(response.body)
       # puts "result: #{result}"
       category = "all" if category == ""
-      puts "!!!!!!!!!! #{country} #{time} #{sort} #{category}"
       share = Share.create(:country => country,
                         :time => time,
                         :sort_type => sort,
