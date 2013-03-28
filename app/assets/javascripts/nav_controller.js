@@ -8,7 +8,7 @@ var NavController = {
     });
 
     // trigger listener on first page load
-    $(window).trigger("hashchange");
+    // $(window).trigger("hashchange");
   },
 
   hashParameters: function(){
@@ -29,21 +29,27 @@ var NavController = {
 
       // check if date is today
       if (!this.isCurrentDate(date)){
+        console.log("ajax tiem");
         NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
       }
 
       ViewController.updateFormSelection(sort, category, timeFrame);
+      // this.setWindowHash(date);
+      // console.log("use archiveDate");
     }
     // user has not made a selection; assign random country to view
     else {
       MapController.assignRandomRegion();
+      VideoController.retrieveVideos(VideoController.defaultVideoQuery);
+      // this.setWindowHash();
+      // console.log("use today date");
     }
-    this.setWindowHash();
   },
 
   isCurrentDate: function(date){
     var d = new Date ();
-    return date === ((d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear());
+    var today = (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear();
+    return date === today;
   },
 
 
@@ -61,13 +67,21 @@ var NavController = {
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
   },
 
-  setWindowHash: function(){
+  setWindowHash: function(archiveDate){
     // retrieve values of current selection
     var code      = MapController.selectedCountry;
     var sortType  = FormController.sortBy(); // TODO: sortBy is two functions
     var category  = FormController.category();
     var timeFrame = FormController.timeFrame();
-    var date      = ViewController.formattedDate();
+
+    var date = "";
+    if(archiveDate){
+      date = archiveDate;
+    }
+    else {
+      date = ViewController.formattedDate();
+    }
+
     var urlHash = ["maps", code, sortType, category, timeFrame, date].join("/");
 
     // update url with values of current selection
