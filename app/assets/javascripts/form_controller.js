@@ -7,6 +7,7 @@ var FormController = {
     $('form').change(function(){
       MapController.clearSelectedRegion();
       MapController.selectedCountry = FormController.country();
+      MapController.map.setFocus(MapController.selectedCountry);
       NavController.setWindowHash();
     });
   },
