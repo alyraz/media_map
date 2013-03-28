@@ -22,10 +22,14 @@ var MapController = {
     return false;
   },
 
-  // resetSelectedRegion: function(){
-  //   this.map.clearSelectedRegions();
-  //   this.map.setSelectedRegions(MapController.selectedCountry);
-  // },
+  resetSelectedRegion: function(){
+    this.map.clearSelectedRegions();
+    this.map.setSelectedRegions(MapController.selectedCountry);
+  },
+
+  clearSelectedRegion: function(){
+    this.map.clearSelectedRegions();
+  },
 
   updateSelectedRegion: function(){
     this.map.setSelectedRegions(this.selectedCountry);

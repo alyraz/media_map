@@ -5,6 +5,7 @@ var FormController = {
 
   sendSelection: function(){
     $('form').change(function(){
+      MapController.clearSelectedRegion();
       MapController.selectedCountry = FormController.country();
       NavController.setWindowHash();
     });
