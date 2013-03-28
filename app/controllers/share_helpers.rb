@@ -1,7 +1,7 @@
 module ShareHelpers
   def save_videos(share, videos)
-    videos.each_with_index do |youtube_video_id, index|
-        video = Video.find_or_create_by_youtube_video_id(youtube_video_id)
+    videos.each_with_index do |youtube_video_object, index|
+        video = Video.find_or_create_by_youtube_video_object(youtube_video_object)
         video.entries << share.entries.create(:position => index)
     end
   end
@@ -20,7 +20,7 @@ module ShareHelpers
     sorted_entries = share.entries.sort_by(&:position)
     sorted_videos = []
     sorted_entries.each do |entry|
-      sorted_videos << Video.find(entry.video_id).youtube_video_id
+      sorted_videos << Video.find(entry.video_id).youtube_video_object
     end
     sorted_videos
   end

@@ -8,7 +8,7 @@ var NavController = {
     });
 
     // trigger listener on first page load
-    // $(window).trigger("hashchange");
+     //$(window).trigger("hashchange");
   },
 
   hashParameters: function(){
@@ -27,22 +27,25 @@ var NavController = {
       var timeFrame   = params[4];
       var date        = params[5];
 
-      // check if date is today
+      // check if date is not today
       if (!this.isCurrentDate(date)){
         console.log("ajax tiem");
         NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
+        // get video ids from database and populate render videos
       }
-
+      else {
+        MapController.updateSelectedRegion();
+        VideoController.retrieveVideos(VideoController.defaultVideoQuery);
+        this.setWindowHash();
+      }
       ViewController.updateFormSelection(sort, category, timeFrame);
-      // this.setWindowHash(date);
-      // console.log("use archiveDate");
     }
     // user has not made a selection; assign random country to view
     else {
       MapController.assignRandomRegion();
       VideoController.retrieveVideos(VideoController.defaultVideoQuery);
-      // this.setWindowHash();
-      // console.log("use today date");
+       this.setWindowHash();
+      console.log("use today date");
     }
   },
 
@@ -95,9 +98,12 @@ var NavController = {
       data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
     })
     .done(function( serverResponse ) {
-      console.log(serverResponse);
+      var videos = serverResponse.videos;
+      ViewController.render(videos);
+      MapController.updateSelectedRegion();
     })
     .fail(function(){
+      window.location = "/";
       console.log("request failed");
     });
   }

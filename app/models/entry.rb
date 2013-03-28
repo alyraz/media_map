@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :position, :view_count
+  attr_accessible :position
 
   belongs_to :share
   belongs_to :video
