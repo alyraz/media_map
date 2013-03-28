@@ -6,8 +6,7 @@ var FormController = {
   sendSelection: function(){
     $('form').change(function(){
       MapController.selectedCountry = FormController.country();
-      // logic unless it's not today 
-      NavController.setWindowHash(); // setting window hash
+      NavController.setWindowHash();
     });
   },
   

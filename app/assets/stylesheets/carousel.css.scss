@@ -4,8 +4,8 @@
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
-  height: 190px;
-  width: 20px;
+  height: 208px;
+  width: 15px;
   float: right;
   .hidden {
     display: none;
@@ -13,12 +13,12 @@
   .arrow {
     position: absolute;
     right: 5px;
-    height: 180px;
+    height: 208px;
     width: 20px;
     color: #ccc;
     text-decoration: none;
     span {
-      line-height: 180px;
+      line-height: 208px;
       font-size: 25px;
       width: 10px;
     }

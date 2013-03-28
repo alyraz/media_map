@@ -22,9 +22,13 @@ var MapController = {
     return false;
   },
 
-  resetSelectedRegion: function(){
-    this.map.clearSelectedRegions();
-    this.map.setSelectedRegions(MapController.selectedCountry);
+  // resetSelectedRegion: function(){
+  //   this.map.clearSelectedRegions();
+  //   this.map.setSelectedRegions(MapController.selectedCountry);
+  // },
+
+  updateSelectedRegion: function(){
+    this.map.setSelectedRegions(this.selectedCountry);
   },
 
   assignRegion: function(){
@@ -84,7 +88,6 @@ var MapController = {
 
       onRegionSelected: function(e, code, isSelected, selectedRegions){
         if(isSelected){
-          console.log("selecting " + code);
           this.selectedRegions = code;
           $('.country').val(code);
           NavController.setWindowHash(); // setting window hash
