@@ -38,8 +38,26 @@ section {
 footer {
   clear: both;
   width: 100%;
-  background-color: black;
+  background-color: rgba(20,20,20,0.9);
   color: white;
-  font-size: 20x;
-  height: 40px;
+  font-size: 15px;
+  height: 30px;
+  position: relative;
+  .signature {
+    display: inline-block;
+    padding: 8px 5px;
+    letter-spacing: 2px;
+    a:link, a:visited {
+      text-decoration: none;
+      color: white;
+      border-bottom:1px dotted;
+    }
+    a:hover{
+      color: red;
+    }
+  }
+  .social-buttons{
+    float: right;
+    padding-top: 8px;
+  }
 }

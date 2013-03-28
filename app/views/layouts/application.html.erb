@@ -12,10 +12,16 @@
       <%= yield %>
     </div>
     <footer>
-      <span>Made with wonder in San Francisco by Alyssa, Eno, Mary, and Ryan.</span>
-      <div>
+      <span class='signature'>
+        Made with wonder in San Francisco by 
+          <%= link_to "Alyssa", "https://github.com/alyraz", :target => "_blank" %>,
+          <%= link_to "Eno", "https://github.com/enocom", :target => "_blank" %>,
+          <%= link_to "Mary", "https://github.com/marybethlee", :target => "_blank" %>, and
+          <%= link_to "Ryan", "https://github.com/rloomba", :target => "_blank" %>.
+      </span>
+      <span class='social-buttons'>
         <%= render 'social_buttons' %>
-      </div>
+      </span>
     </footer>
   </body>
 </html>
