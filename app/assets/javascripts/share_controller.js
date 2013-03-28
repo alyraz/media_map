@@ -2,7 +2,6 @@ var ShareController = {
   init: function(){
     $('#share-button').on('click', function(event){
       event.preventDefault();
-      console.log("inside here");
       var category = FormController.category();
       var country = MapController.selectedCountry;
       var time = FormController.timeFrame();
@@ -20,10 +19,10 @@ var ShareController = {
         data: {shareData: shareData, videos: ShareController.getTopVideos()}
       })
       .done(function(serverResponse) {
-        alert("Your share link is: " + "http://mediamap.com/" + serverResponse.data);
+        // alert("Your share link is: " + "http://mediamap.com/" + serverResponse.data);
       })
       .fail(function(){
-        console.log("failed to post to /share");
+        // console.log("failed to post to /share");
       })
       .always(function(){
       });

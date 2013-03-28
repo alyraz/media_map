@@ -20,8 +20,8 @@ var VideoController = {
     $.ajax({
       type: "GET",
       url: this.createUrl(num),
-      dataType: "json"})
-    .done(function(youtubeResponse){
+      dataType: "json"
+    }).done(function(youtubeResponse){
       VideoController.videos = youtubeResponse.data.items;
       ViewController.render(VideoController.videos);
     });
@@ -31,8 +31,8 @@ var VideoController = {
     $.ajax({
       type: "GET",
       url: this.createUrl(num),
-      dataType: "json"})
-    .done(function(youtubeResponse){
+      dataType: "json"
+    }).done(function(youtubeResponse){
       VideoController.videos = youtubeResponse.data.items;
       ViewController.populateThumbnails(VideoController.videos);
     });
