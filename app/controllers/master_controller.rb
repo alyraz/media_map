@@ -11,11 +11,7 @@ class MasterController < ApplicationController
     sorted_videos = find_sorted_videos(share)
       if sorted_videos.length > 0
         render :json => {videos: sorted_videos}.to_json
-      else 
-        # render :json => {error: "no entries found"}.to_json
-      end 
-    else
-      # render :json => {error: "no share found"}.to_json
+      end
     end
   end
 

@@ -1,5 +1,5 @@
 class Share < ActiveRecord::Base
-  attr_accessible :country, :time, :sort_type, :category, :short_url, :created_at
+  attr_accessible :country, :time, :sort_type, :category, :short_url
 
   has_many :entries
 
