@@ -1,25 +1,8 @@
-$iframe-width: 550px;
-$video-player-width: 700px;
-$disabled-country-color: #f6f5f2;
-
-.video-container {
-  width: $video-player-width;
-  position: relative;
-  padding-top: 60px;
-}
-
 .selected-item {
-  width: $iframe-width;
-  float: left;
-  iframe {
-    display: none;
-  }
-}
-
-.media-center {
-  position: relative;
-  width: $video-player-width;
-  //background-color: rgba(20,20,20,0.9);
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  display: inline;
 }
 
 
