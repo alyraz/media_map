@@ -1,7 +1,7 @@
 <%= form_tag do %>
   <div class='context-sentence'>
       <ul>
-      <li>Show me the</li>
+      <li>Show me the&nbsp;</li>
       <li><div class="styled-select">
         <%= select_tag( :sort,
                         options_for_select([["most popular", "most_popular"],
@@ -22,7 +22,7 @@
                                             ["movie", "_Movies"]]),
                         { :class => "category" }) %>
       </div></li>
-      <li>videos from</li>
+      <li>&nbsp;videos from&nbsp;</li>
       <li><div class="styled-select">
         <%= select_tag( :time, 
                         options_for_select([["today", "today"],
@@ -31,7 +31,7 @@
                                             ["all time", "all_time"]]),
                         { :class => "time" }) %>
       </div></li>
-      <li>for</li>
+      <li>&nbsp;for&nbsp;</li>
       <li><div class="styled-select">
         <%= render "country_select" %>
       </div></li>
