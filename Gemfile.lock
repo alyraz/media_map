@@ -37,9 +37,6 @@ GEM
       timers (>= 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-<<<<<<< HEAD
-    chronic (0.9.1)
-=======
     chosen-rails (0.9.12)
       coffee-rails (>= 3.2)
       railties (>= 3.0)
@@ -51,7 +48,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.1)
->>>>>>> scheduled-tasks
     columnize (0.3.6)
     connection_pool (1.0.0)
     daemons (1.1.9)
@@ -190,6 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chosen-rails (~> 0.9.12)
   debugger
   factory_girl_rails
   faker
