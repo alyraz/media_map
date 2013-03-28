@@ -21,7 +21,6 @@
       line-height: 233px;
       font-size: 60px;
       padding-right: 30px;
-      //width: 10px;
     }
   }
   .arrow:hover {
@@ -31,28 +30,21 @@
     display: none;
     margin: 0;
     padding: 5px 0 0 0;
-    list-style: none;
+    list-style: none; 
+  }
+  .video-thumbnails {
     li {
-      clear: both;
-      white-space: normal;
-      vertical-align: top;
       height: 80px;
       width: 107px;
       margin: 5px;
-      list-style: none;
-      display: inline-block;
       a {
         color: black;
         text-decoration: none;
-        img {
-          float: left;
-        }
         span {
           display: none;
           padding: 5px 0 5px 5px;
         }
         span.thumbnail-title {
-          padding-top: 5px;
           font-size: 12px;
         }
         span.view-count {
@@ -71,28 +63,34 @@
           display: block;
         }
         span.thumbnail-title {
-          padding-top: 5px;
           height: 35px;
           color: #fff;
           overflow: hidden;
         }
       }
     }
-    li.fetch-videos {
-      width: 107px;
-      font-size: 1em;
-      height: 20px;
-      a {
-        line-height: 15px;
-        padding-left: 10px;
-      }
-    }
-    li.fetch-videos:hover {
-      background-color: none;
-      a {
-        color: #ccc;
-        text-decoration: none;
-      }
-    }
   }
+}
+.fetch-videos {
+  width: 107px;
+  font-weight: 700;
+  height: 20px;
+  a {
+    padding-left: 35px;
+    color: #ccc;
+    line-height: 15px;
+    text-decoration: none;
+  }
+}
+.fetch-videos:hover {
+  background-color: none;
+  a {
+    color: #000;
+  }
+}
+.list-title {
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  height: 20px;
 }
