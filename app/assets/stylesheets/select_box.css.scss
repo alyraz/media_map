@@ -1,0 +1,86 @@
+$box-height: 25px;
+$font-size: 16px;
+
+.styled-select select {
+   background: transparent;
+   width: 220px;
+   padding: 5px;
+   font-size: $font-size;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: $box-height;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   cursor: hand;
+   cursor: pointer;
+
+}
+
+.styled-select {
+  width: 130px;
+  height: $box-height;
+  overflow: hidden;
+  background: url(/assets/down_arrow.png) no-repeat right;
+  position: relative;
+  top: -10px;
+  background-color: rgb(20,20,20);
+  background-color: rgba(20,20,20,0.3);
+  margin: 6px 3px 0 3px;
+  /*border: 1px solid #ccc;*/
+}
+
+select {
+  color: white;
+  text-shadow: 0 0 0 #000;
+}
+
+select.sort { 
+}
+
+select.category {
+ 
+}
+
+select.time {
+}
+
+form input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.context-sentence li {
+  list-style: none;
+  position: relative;
+  float: left;
+}
+
+.context-sentence {
+  margin-top: 6px;
+  background: rgb(20,20,20);
+  background: rgba(20,20,20,0.5);
+  position: absolute;
+  z-index: 1;
+  font-size: $font-size;
+  color: white;
+  width: 880px;
+  border-radius: 15px;
+}
+
+.flag {
+  margin-top: -15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

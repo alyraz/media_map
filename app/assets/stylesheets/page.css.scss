@@ -34,6 +34,16 @@ section {
   padding: 0 0 0 15px;
 }
 
+.selected-item {
+  position: absolute;
+  left: -152px;
+  bottom: 15px;
+  padding: 7px;
+  background-color: rgba(20,20,20,0.8);
+  border-radius: 15px;
+
+}
+
 footer {
   clear: both;
   width: 100%;

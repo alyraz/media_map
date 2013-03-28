@@ -59,7 +59,7 @@ var MapController = {
           "fill-opacity": 0.65
         },
         selected: {
-          fill: 'green'
+          fill: "green"
         }
       },
 
