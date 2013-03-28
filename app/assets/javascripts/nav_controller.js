@@ -2,13 +2,9 @@ var NavController = {
   init: function(){
     this.preparePage();
 
-    // set up listener on future url hash changes
     $(window).on('hashchange', function(){
       NavController.updatePageFromHash();
     });
-
-    // trigger listener on first page load
-     //$(window).trigger("hashchange");
   },
 
   hashParameters: function(){
@@ -29,7 +25,6 @@ var NavController = {
 
       // check if date is not today
       if (!this.isCurrentDate(date)){
-        console.log("ajax tiem");
         NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
         // get video ids from database and populate render videos
       }
@@ -44,8 +39,7 @@ var NavController = {
     else {
       MapController.assignRandomRegion();
       VideoController.retrieveVideos(VideoController.defaultVideoQuery);
-       this.setWindowHash();
-      console.log("use today date");
+      this.setWindowHash();
     }
   },
 
@@ -97,15 +91,12 @@ var NavController = {
       type: "POST",
       url: "/share",
       data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
-    })
-    .done(function( serverResponse ) {
+    }).done(function( serverResponse ) {
       var videos = serverResponse.videos;
       ViewController.render(videos);
       MapController.updateSelectedRegion();
-    })
-    .fail(function(){
+    }).fail(function(){
       window.location = "/";
-      console.log("request failed");
     });
   }
 };

@@ -18,8 +18,8 @@ var ViewController = {
     $('.top-items ul li.tile').remove();
   },
 
-  createSrc: function(id, playSetting){
-    return "http://www.youtube.com/embed/" +id+ "?autoplay=" +playSetting+ "&enablejsapi=1";
+  createSrc: function(id){
+    return "http://www.youtube.com/embed/" +id+ "?autoplay=1&enablejsapi=1";
   },
 
   createThumbnailList: function(video){
@@ -41,7 +41,7 @@ var ViewController = {
   render: function(videos){
     this.clearMedia();
     this.populateThumbnails(videos);
-    var src = this.createSrc(videos[0].id, "0");
+    var src = this.createSrc(videos[0].id);
     $('#ytplayer').attr("src", src).show();
   },
 
@@ -61,7 +61,6 @@ var ViewController = {
     return views;
   },
 
-  // stores user selection in page
   updateFormSelection: function(sort, category, timeFrame){
     $(".sort").val(sort);
     $(".category").val(category);

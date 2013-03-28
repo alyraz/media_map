@@ -95,7 +95,6 @@ var MapController = {
         if(isSelected){
           this.selectedRegions = code;
           $('.country').val(code);
-          // NavController.setWindowHash(); // setting window hash
           ViewController.clearMedia();
           ViewController.updateFlag(code);
         }

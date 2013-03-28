@@ -24,9 +24,6 @@ var VideoController = {
     .done(function(youtubeResponse){
       VideoController.videos = youtubeResponse.data.items;
       ViewController.render(VideoController.videos);
-    })
-    .fail(function(){
-      console.log("There was an error");
     });
   },
 
