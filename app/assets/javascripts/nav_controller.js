@@ -8,7 +8,7 @@ var NavController = {
     });
 
     // trigger listener on first page load
-    $(window).trigger("hashchange");
+     //$(window).trigger("hashchange");
   },
 
   hashParameters: function(){
@@ -26,18 +26,35 @@ var NavController = {
       var category    = params[3];
       var timeFrame   = params[4];
       var date        = params[5];
+
+      // check if date is not today
+      if (!this.isCurrentDate(date)){
+        console.log("ajax tiem");
+        NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
+        // get video ids from database and populate render videos
+      }
+      else {
+        MapController.updateSelectedRegion();
+        VideoController.retrieveVideos(VideoController.defaultVideoQuery);
+        this.setWindowHash();
+      }
       ViewController.updateFormSelection(sort, category, timeFrame);
-      // read client's location and UCT
-      // if (date !== (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear()){
-      NavController.retrieveArchivedVideos(country, sort, category, timeFrame, date);
-      // }
     }
     // user has not made a selection; assign random country to view
     else {
       MapController.assignRandomRegion();
+      VideoController.retrieveVideos(VideoController.defaultVideoQuery);
+       this.setWindowHash();
+      console.log("use today date");
     }
-    this.setWindowHash();
   },
+
+  isCurrentDate: function(date){
+    var d = new Date ();
+    var today = (d.getMonth()+1) + "-" + d.getDate() + "-" + d.getFullYear();
+    return date === today;
+  },
+
 
   updatePageFromHash: function(){
     var params = this.hashParameters();
@@ -53,13 +70,21 @@ var NavController = {
     VideoController.retrieveVideos(VideoController.defaultVideoQuery);
   },
 
-  setWindowHash: function(){
+  setWindowHash: function(archiveDate){
     // retrieve values of current selection
     var code      = MapController.selectedCountry;
     var sortType  = FormController.sortBy(); // TODO: sortBy is two functions
     var category  = FormController.category();
     var timeFrame = FormController.timeFrame();
-    var date      = ViewController.formattedDate();
+
+    var date = "";
+    if(archiveDate){
+      date = archiveDate;
+    }
+    else {
+      date = ViewController.formattedDate();
+    }
+
     var urlHash = ["maps", code, sortType, category, timeFrame, date].join("/");
 
     // update url with values of current selection
@@ -73,7 +98,13 @@ var NavController = {
       data: { sort: sort, category: category, timeFrame: timeFrame, date: date, country: MapController.selectedCountry }
     })
     .done(function( serverResponse ) {
-      console.log(serverResponse);
+      var videos = serverResponse.videos;
+      ViewController.render(videos);
+      MapController.updateSelectedRegion();
+    })
+    .fail(function(){
+      window.location = "/";
+      console.log("request failed");
     });
   }
 };
