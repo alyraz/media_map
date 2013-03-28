@@ -5,7 +5,7 @@ var MapController = {
     "DE", "DZ", "EG", "ES", "FR", "GB", "GH", "GR",
     "HU", "ID", "IE", "IL", "IN", "IT", "JO", "JP", "KE",
     "KR", "MA", "MX", "MY", "NG", "NL", "NZ", "PE", "PH",
-    "PL", "RU", "SA", "SE", "SG", "TN", "TR", "TW", "UG",
+    "PL", "RU", "SA", "SE", "TN", "TR", "TW", "UG",
     "US", "YE", "ZA"
   ],
 
