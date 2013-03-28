@@ -100,7 +100,7 @@ var ViewController = {
 
   hideThumbnails: function(){
     $('.arrow').toggleClass("hidden");
-    $('.top-items').css('width', '15px');
+    $('.top-items').css('width', '20px');
     $('.top-items ul').hide();
   }
 };
