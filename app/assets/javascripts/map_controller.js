@@ -87,6 +87,7 @@ var MapController = {
         } else {
           MapController.selectedCountry = code;
           MapController.map.setFocus(code);
+          NavController.setWindowHash();
         }
       },
 
@@ -94,7 +95,7 @@ var MapController = {
         if(isSelected){
           this.selectedRegions = code;
           $('.country').val(code);
-          NavController.setWindowHash(); // setting window hash
+          // NavController.setWindowHash(); // setting window hash
           ViewController.clearMedia();
           ViewController.updateFlag(code);
         }

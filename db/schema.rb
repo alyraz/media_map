@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20130324215925) do
     t.integer  "position",   :null => false
     t.integer  "share_id",   :null => false
     t.integer  "video_id"
-    t.integer  "view_count"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -33,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130324215925) do
   end
 
   create_table "videos", :force => true do |t|
-    t.string   "youtube_video_id", :null => false
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.text     "youtube_video_object"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
 end

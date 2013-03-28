@@ -2,15 +2,15 @@ class YoutubeWorker
   include Sidekiq::Worker
 
   def perform
-    selectable_regions =  ["AE", "AR", "AU", "BE", "BR", "CA",
-                      "CL", "CO", "CZ", "DE", "DZ",
-                      "EG", "ES", "FR", "GB", "GH",
-                      "GR", "HK", "HU", "ID", "IE", "IL",
-                      "IN", "IT", "JO", "JP", "KE", "KR",
-                      "MA", "MX", "MY", "NG", "NL",
-                      "NZ", "PE", "PH", "PL", "RU", "SA",
-                      "SE", "SG", "TN", "TR", "TW",
-                      "UG", "US", "YE", "ZA"]
+    selectable_regions =  ["AE", "AR"] #, "AU", "BE", "BR", "CA",
+                      # "CL", "CO", "CZ", "DE", "DZ",
+                      # "EG", "ES", "FR", "GB", "GH",
+                      # "GR", "HK", "HU", "ID", "IE", "IL",
+                      # "IN", "IT", "JO", "JP", "KE", "KR",
+                      # "MA", "MX", "MY", "NG", "NL",
+                      # "NZ", "PE", "PH", "PL", "RU", "SA",
+                      # "SE", "SG", "TN", "TR", "TW",
+                      # "UG", "US", "YE", "ZA"]
     sorts = ["most_popular", "most_discussed", "most_responded", "most_subscribed", "top_rated", "top_favorites"]
     categories = ["", "_Music", "_News", "_Entertainment", "_Sports", "_Movies"]
     times = ["today", "all_time"]
@@ -46,9 +46,8 @@ class YoutubeWorker
       unless result.has_key?("error") || result['data']['totalItems'] == 0
         result["data"]["items"].each_with_index do |video_obj, index|
           # do something with this video["id"] and video["viewCount"]
-          video = Video.find_or_create_by_youtube_video_id(video_obj["id"])
-          video.entries << share.entries.create(:position => index,
-                                                :view_count => video["viewCount"])
+          video = Video.create(:youtube_video_object => video_obj)
+          video.entries << share.entries.create(:position => index)
         end
       end
     end

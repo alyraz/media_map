@@ -4,6 +4,10 @@ gem 'rails', '3.2.12'
 gem 'pg'
 gem 'thin'
 
+# For Sidekiq admin
+gem 'slim'
+gem 'sinatra', '>= 1.3.0', :require => nil
+
 # Background and rake tasks
 gem 'sidekiq'
 gem 'typhoeus'

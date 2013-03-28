@@ -63,7 +63,6 @@ var ViewController = {
 
   // stores user selection in page
   updateFormSelection: function(sort, category, timeFrame){
-    console.log("got to update form");
     $(".sort").val(sort);
     $(".category").val(category);
     $(".time").val(timeFrame);
